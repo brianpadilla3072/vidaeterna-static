@@ -1,0 +1,1 @@
+# vidaeterna-static
