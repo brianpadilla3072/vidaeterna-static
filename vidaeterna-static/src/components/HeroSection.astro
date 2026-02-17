@@ -1,0 +1,61 @@
+---
+---
+
+<section class="hero-with-gradient relative py-24 text-white overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="https://images.unsplash.com/photo-1667068114508-0055f7fb25a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjB3b3JzaGlwJTIwaGFuZHMlMjByYWlzZWR8ZW58MXx8fHwxNzcwMTk4MzgyfDA&ixlib=rb-4.1.0&q=80&w=1080"
+      alt="Epic Church"
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-4 text-center py-20">
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+      TRANSFORMED LIVES. <span class="text-blue-400">PERIOD</span>
+    </h1>
+    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+      At EPIC Church no matter your age, background, or status, you matter to God.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="#watch-live"
+        class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors text-lg"
+      >
+        Watch Live
+      </a>
+      <a
+        href="#contact"
+        class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-md hover:bg-white hover:text-blue-900 transition-colors text-lg"
+      >
+        Contact Us
+      </a>
+    </div>
+  </div>
+
+  <!-- Curve at bottom -->
+  <div class="absolute bottom-0 left-0 right-0 z-10">
+    <svg viewBox="0 0 1440 120" class="w-full h-auto fill-white" preserveAspectRatio="none">
+      <path d="M0,0 Q720,120 1440,0 L1440,120 L0,120 Z"></path>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .hero-with-gradient::before {
+    content: "";
+    position: absolute;
+    z-index: 4;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #10375B;
+    background: linear-gradient(180deg, #10375B 0%, rgba(255, 255, 255, 0) 27%);
+    pointer-events: none;
+  }
+</style>

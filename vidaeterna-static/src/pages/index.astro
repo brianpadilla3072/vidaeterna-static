@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HeroSection from '../components/HeroSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+import MinistriesCallouts from '../components/MinistriesCallouts.astro';
+import PlanVisitSection from '../components/PlanVisitSection.astro';
+import SermonSection from '../components/SermonSection.astro';
+import EventsSection from '../components/EventsSection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Epic Church">
+  <div class="min-h-screen bg-white">
+    <Header />
+    <main>
+      <div data-aos="fade-in">
+        <HeroSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <AboutSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <MinistriesCallouts />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <PlanVisitSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <SermonSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <EventsSection />
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>

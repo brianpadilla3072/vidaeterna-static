@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  series: string;
+  date: string;
+  thumbnail: string;
+  videoUrl: string;
+}
+
+const { title, series, date, thumbnail, videoUrl } = Astro.props;
+---
+
+<div
+  class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+  data-aos="fade-up"
+  data-aos-duration="600"
+>
+  <img src={thumbnail} alt={title} class="w-full h-48 object-cover" />
+  <div class="p-6">
+    <h3 class="text-2xl font-bold mb-2 text-gray-900">{title}</h3>
+    <p class="text-gray-600 text-sm mb-4">{date} • {series}</p>
+    <a href={videoUrl} class="text-blue-600 font-semibold hover:underline">Watch Sermon →</a>
+  </div>
+</div>

@@ -1,0 +1,203 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Layout title="Volunteer - Epic Church">
+  <div class="min-h-screen bg-white">
+    <Header />
+
+    <main>
+      <PageHero
+        title="Volunteer"
+        subtitle="Use your gifts to make a difference"
+        backgroundImage="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1600&h=600&fit=crop"
+      />
+
+      <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold mb-6 text-gray-900">Serve With Us</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Everyone has something to contribute! At Epic Church, we believe that
+              when we use our gifts to serve others, we experience purpose and joy
+              while making a real impact.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 mb-16">
+            <div class="bg-blue-50 p-8 rounded-lg">
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Worship Team</h3>
+              <p class="text-gray-600 mb-4">
+                Share your musical talents to lead our congregation in worship.
+                Vocalists, instrumentalists, and tech volunteers needed.
+              </p>
+              <ul class="text-gray-600 text-sm space-y-2">
+                <li>• Singers and vocalists</li>
+                <li>• Musicians (all instruments)</li>
+                <li>• Sound and lighting technicians</li>
+              </ul>
+            </div>
+
+            <div class="bg-blue-50 p-8 rounded-lg">
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Epic Kidz</h3>
+              <p class="text-gray-600 mb-4">
+                Make a lasting impact by teaching and caring for our children.
+                Training and background checks provided.
+              </p>
+              <ul class="text-gray-600 text-sm space-y-2">
+                <li>• Teachers and small group leaders</li>
+                <li>• Check-in volunteers</li>
+                <li>• Activity coordinators</li>
+              </ul>
+            </div>
+
+            <div class="bg-blue-50 p-8 rounded-lg">
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Welcome Team</h3>
+              <p class="text-gray-600 mb-4">
+                Be the friendly face that greets people as they arrive. Help
+                visitors feel at home from their first moment.
+              </p>
+              <ul class="text-gray-600 text-sm space-y-2">
+                <li>• Greeters and ushers</li>
+                <li>• Welcome center hosts</li>
+                <li>• Parking team</li>
+              </ul>
+            </div>
+
+            <div class="bg-blue-50 p-8 rounded-lg">
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Epic Youth</h3>
+              <p class="text-gray-600 mb-4">
+                Invest in the next generation by mentoring and leading teens
+                in their faith journey.
+              </p>
+              <ul class="text-gray-600 text-sm space-y-2">
+                <li>• Small group leaders</li>
+                <li>• Event coordinators</li>
+                <li>• Mentors</li>
+              </ul>
+            </div>
+
+            <div class="bg-blue-50 p-8 rounded-lg">
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Production Team</h3>
+              <p class="text-gray-600 mb-4">
+                Use your technical skills to create an excellent experience
+                for our services and events.
+              </p>
+              <ul class="text-gray-600 text-sm space-y-2">
+                <li>• Video and camera operators</li>
+                <li>• Graphics and slides</li>
+                <li>• Live streaming</li>
+              </ul>
+            </div>
+
+            <div class="bg-blue-50 p-8 rounded-lg">
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Life Groups</h3>
+              <p class="text-gray-600 mb-4">
+                Lead a small group in your home or at the church to build
+                community and help people grow spiritually.
+              </p>
+              <ul class="text-gray-600 text-sm space-y-2">
+                <li>• Life group leaders</li>
+                <li>• Co-leaders and apprentices</li>
+                <li>• Host homes</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-lg p-12 mb-12">
+            <h3 class="text-3xl font-bold mb-6 text-center">Ready to Get Started?</h3>
+            <p class="text-xl text-center mb-8 text-white/90">
+              Fill out the form below and we'll connect you with the right team!
+            </p>
+
+            <form class="max-w-2xl mx-auto space-y-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-semibold mb-2">First Name *</label>
+                  <input
+                    type="text"
+                    required
+                    class="w-full px-4 py-3 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold mb-2">Last Name *</label>
+                  <input
+                    type="text"
+                    required
+                    class="w-full px-4 py-3 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold mb-2">Email *</label>
+                <input
+                  type="email"
+                  required
+                  class="w-full px-4 py-3 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold mb-2">Phone</label>
+                <input
+                  type="tel"
+                  class="w-full px-4 py-3 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold mb-2">I'm interested in serving with: *</label>
+                <select
+                  required
+                  class="w-full px-4 py-3 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                >
+                  <option value="">Select a ministry...</option>
+                  <option value="worship">Worship Team</option>
+                  <option value="kidz">Epic Kidz</option>
+                  <option value="welcome">Welcome Team</option>
+                  <option value="youth">Epic Youth</option>
+                  <option value="production">Production Team</option>
+                  <option value="lifegroups">Life Groups</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold mb-2">Tell us about yourself</label>
+                <textarea
+                  rows="4"
+                  class="w-full px-4 py-3 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                  placeholder="Share your interests, experience, or any questions you have..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-white text-blue-900 px-6 py-3 rounded-md text-lg font-semibold hover:bg-gray-100 transition-colors"
+              >
+                Submit Application
+              </button>
+            </form>
+          </div>
+
+          <div class="text-center">
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Questions?</h3>
+            <p class="text-gray-600 mb-6">
+              We'd love to help you find the perfect place to serve!
+            </p>
+            <a href="/contact" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition-colors">
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>

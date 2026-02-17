@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Layout title="Give - Epic Church">
+  <div class="min-h-screen bg-white">
+    <Header />
+
+    <main>
+      <PageHero
+        title="Give"
+        subtitle="Your generosity changes lives"
+        backgroundColor="bg-blue-900"
+      />
+
+      <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold mb-6 text-gray-900">Why We Give</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Giving is an act of worship that allows us to partner with God in
+              transforming lives and advancing His kingdom. Your generosity makes
+              it possible for us to reach our community and beyond.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="text-center p-6 bg-blue-50 rounded-lg">
+              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold mb-3 text-gray-900">Reach People</h3>
+              <p class="text-gray-600">Help us share the Gospel with our community and around the world</p>
+            </div>
+
+            <div class="text-center p-6 bg-blue-50 rounded-lg">
+              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold mb-3 text-gray-900">Build Community</h3>
+              <p class="text-gray-600">Support ministries and programs that strengthen our church family</p>
+            </div>
+
+            <div class="text-center p-6 bg-blue-50 rounded-lg">
+              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold mb-3 text-gray-900">Serve Others</h3>
+              <p class="text-gray-600">Enable outreach and compassion initiatives that meet real needs</p>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-lg p-12 mb-12">
+            <h3 class="text-3xl font-bold mb-6 text-center">Ways to Give</h3>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+              <div class="bg-white/10 p-6 rounded-lg">
+                <h4 class="text-xl font-bold mb-3">Online</h4>
+                <p class="text-white/90 mb-4">Give securely through our online giving platform</p>
+                <button class="bg-white text-blue-900 px-6 py-2 rounded-md font-semibold hover:bg-gray-100 transition-colors w-full">
+                  Give Online
+                </button>
+              </div>
+
+              <div class="bg-white/10 p-6 rounded-lg">
+                <h4 class="text-xl font-bold mb-3">In Person</h4>
+                <p class="text-white/90 mb-4">Bring your offering during any Sunday service</p>
+                <a href="/im-new" class="block bg-white text-blue-900 px-6 py-2 rounded-md font-semibold hover:bg-gray-100 transition-colors text-center">
+                  Service Times
+                </a>
+              </div>
+
+              <div class="bg-white/10 p-6 rounded-lg">
+                <h4 class="text-xl font-bold mb-3">By Mail</h4>
+                <p class="text-white/90 mb-4">Send your gift to our church address</p>
+                <p class="text-sm text-white/80">
+                  Epic Church<br />
+                  123 Main Street<br />
+                  Your City, ST 12345
+                </p>
+              </div>
+            </div>
+
+            <p class="text-center text-white/90 text-sm">
+              Epic Church is a 501(c)(3) tax-exempt organization. All donations are tax-deductible.
+            </p>
+          </div>
+
+          <div class="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600">
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Biblical Perspective on Giving</h3>
+            <p class="text-gray-700 mb-4 italic">
+              "Each of you should give what you have decided in your heart to give,
+              not reluctantly or under compulsion, for God loves a cheerful giver."
+            </p>
+            <p class="text-gray-600 text-sm">- 2 Corinthians 9:7</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>

@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Layout title="About - Epic Church">
+  <div class="min-h-screen bg-white">
+    <Header />
+
+    <main>
+      <PageHero
+        title="About Epic Church"
+        subtitle="You are more loved than you ever imagined!"
+        backgroundImage="https://images.unsplash.com/photo-1438032005730-c779502df39b?w=1600&h=600&fit=crop"
+      />
+
+      <!-- Leadership & Mission -->
+      <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-5xl">
+          <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+            <div data-aos="fade-right">
+              <img
+                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=600&fit=crop"
+                alt="Leadership"
+                class="rounded-lg shadow-lg w-full"
+              />
+            </div>
+            <div data-aos="fade-left">
+              <h2 class="text-4xl font-bold mb-6 text-gray-900">Our Mission</h2>
+              <p class="text-gray-600 mb-4 text-lg leading-relaxed">
+                We are a non-denominational, Bible-teaching, Spirit-filled,
+                Christ-centered church dedicated to helping people discover their
+                true identity in Christ.
+              </p>
+              <p class="text-gray-600 mb-4 leading-relaxed">
+                Our heart is to see lives transformed by the power of God's love.
+                We believe that every person has been created with a divine purpose,
+                and we're here to help you discover and walk in that purpose.
+              </p>
+            </div>
+          </div>
+
+          <!-- Three Core Beliefs -->
+          <div class="mb-16">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900" data-aos="fade-up">We Believe</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+              <div class="text-center p-6 bg-blue-50 rounded-lg" data-aos="fade-up" data-aos-delay="0">
+                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-900">Precious</h3>
+                <p class="text-gray-600">Everyone is Precious In Christ</p>
+              </div>
+              <div class="text-center p-6 bg-blue-50 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-900">Powerful</h3>
+                <p class="text-gray-600">Everyone is Powerful In Christ</p>
+              </div>
+              <div class="text-center p-6 bg-blue-50 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-900">Purpose</h3>
+                <p class="text-gray-600">Everyone has Purpose In Christ</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mission Statement -->
+          <div class="text-center bg-gradient-to-r from-blue-900 to-blue-700 text-white py-16 px-8 rounded-lg" data-aos="zoom-in" data-aos-delay="100">
+            <h2 class="text-5xl font-bold mb-6">
+              Transformed Lives. <span class="text-yellow-400">Period.</span>
+            </h2>
+            <p class="text-xl mb-8">
+              This is our passion and our purpose - to see every life transformed by the love of Jesus Christ.
+            </p>
+            <p class="text-lg italic">
+              Pastors John & Ilena Wagner
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>

@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Layout title="Epic Life Groups - Epic Church">
+  <div class="min-h-screen bg-white">
+    <Header />
+
+    <main>
+      <PageHero
+        title="Epic Life Groups"
+        subtitle="Life is better together"
+        backgroundImage="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1600&h=600&fit=crop"
+      />
+
+      <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold mb-6 text-gray-900">Connect. Grow. Serve.</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Life Groups are the heart of our church community. These small gatherings
+              provide a place where you can build authentic relationships, grow in your
+              faith, and make a real difference in people's lives.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="text-center p-6 bg-blue-50 rounded-lg">
+              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-3 text-gray-900">Connect</h3>
+              <p class="text-gray-600">Build meaningful friendships in a welcoming community</p>
+            </div>
+
+            <div class="text-center p-6 bg-blue-50 rounded-lg">
+              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-3 text-gray-900">Grow</h3>
+              <p class="text-gray-600">Deepen your faith through study and shared experiences</p>
+            </div>
+
+            <div class="text-center p-6 bg-blue-50 rounded-lg">
+              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-3 text-gray-900">Serve</h3>
+              <p class="text-gray-600">Make an impact together in your community</p>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-8 rounded-lg mb-12 border-l-4 border-blue-600">
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">What to Expect</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-bold text-gray-900 mb-2">Group Size</h4>
+                <p class="text-gray-600 text-sm">8-15 people for intimate, meaningful connections</p>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-2">Meeting Times</h4>
+                <p class="text-gray-600 text-sm">Various days and times to fit your schedule</p>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-2">Locations</h4>
+                <p class="text-gray-600 text-sm">Homes, church building, or online</p>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-2">Format</h4>
+                <p class="text-gray-600 text-sm">Worship, discussion, prayer, and fellowship</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12 mb-16">
+            <div>
+              <h3 class="text-3xl font-bold mb-6 text-gray-900">Find a Life Group</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                We have groups meeting throughout the week at various locations.
+                Whether you're looking for a group for couples, singles, young
+                adults, or seniors, we have a place for you.
+              </p>
+              <ul class="space-y-3 text-gray-600 mb-6">
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Men's groups
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Women's groups
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Young adults
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Couples and families
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Spanish-speaking groups
+                </li>
+              </ul>
+              <a href="/contact" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition-colors">
+                Find Your Group
+              </a>
+            </div>
+
+            <div>
+              <h3 class="text-3xl font-bold mb-6 text-gray-900">Lead a Life Group</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                Have a heart for helping others grow? Consider leading a Life Group.
+                We provide training, resources, and ongoing support to equip you
+                for this important ministry.
+              </p>
+              <div class="bg-white p-6 rounded-lg border border-gray-200 mb-6">
+                <h4 class="font-bold text-gray-900 mb-3">What We Provide</h4>
+                <ul class="space-y-2 text-gray-600 text-sm">
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Leadership training
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Curriculum and resources
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Ongoing coaching
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Community of fellow leaders
+                  </li>
+                </ul>
+              </div>
+              <a href="/contact" class="inline-block bg-gray-800 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-gray-900 transition-colors">
+                Start a Group
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-lg p-12 text-center">
+            <h3 class="text-3xl font-bold mb-4">Ready to Take the Next Step?</h3>
+            <p class="text-xl mb-8 text-white/90">
+              Don't do life alone. Join a Life Group today and experience the
+              power of authentic Christian community.
+            </p>
+            <a href="/contact" class="inline-block bg-white text-blue-900 px-8 py-3 rounded-md text-lg font-semibold hover:bg-gray-100 transition-colors">
+              Get Connected
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>

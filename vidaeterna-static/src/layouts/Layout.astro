@@ -1,0 +1,77 @@
+---
+import BackToTop from '../components/BackToTop.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Epic Church - A community of faith" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body>
+    <slot />
+    <BackToTop />
+
+    <!-- AOS JS con defer para ejecución después del parsing -->
+    <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <!-- Inicialización AOS y Smooth Scroll -->
+    <script is:inline>
+      window.addEventListener('DOMContentLoaded', function() {
+        // Inicializar AOS solo si está disponible
+        if (typeof AOS !== 'undefined') {
+          AOS.init({
+            // Configuración global
+            duration: 800,              // Duración por defecto (ms)
+            easing: 'ease-in-out',      // Tipo de easing
+            offset: 100,                // Offset desde trigger point (px)
+            delay: 0,                   // Delay por defecto (ms)
+
+            // Comportamiento
+            once: true,                 // Animar solo una vez
+            mirror: false,              // No repetir al hacer scroll arriba
+
+            // Punto de activación
+            anchorPlacement: 'top-bottom',
+
+            // Deshabilitar en mobile para mejor performance
+            disable: function() {
+              return window.innerWidth < 768;
+            }
+          });
+        }
+
+        // Smooth scroll para todos los enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

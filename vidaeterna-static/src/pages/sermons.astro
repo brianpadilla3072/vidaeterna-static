@@ -1,0 +1,139 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import SermonCard from '../components/SermonCard.astro';
+
+const sermons = [
+  {
+    title: 'Finding Purpose in Faith',
+    series: 'Living with Purpose',
+    date: 'February 9, 2026',
+    thumbnail: 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=600&h=400&fit=crop',
+    videoUrl: 'https://youtube.com'
+  },
+  {
+    title: 'The Power of Prayer',
+    series: 'Spiritual Disciplines',
+    date: 'February 2, 2026',
+    thumbnail: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop',
+    videoUrl: 'https://youtube.com'
+  },
+  {
+    title: 'Walking in Love',
+    series: 'The Way of Jesus',
+    date: 'January 26, 2026',
+    thumbnail: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=400&fit=crop',
+    videoUrl: 'https://youtube.com'
+  },
+  {
+    title: 'Faith Over Fear',
+    series: 'Overcoming Obstacles',
+    date: 'January 19, 2026',
+    thumbnail: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&h=400&fit=crop',
+    videoUrl: 'https://youtube.com'
+  },
+  {
+    title: 'The Gift of Grace',
+    series: 'Understanding Grace',
+    date: 'January 12, 2026',
+    thumbnail: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop',
+    videoUrl: 'https://youtube.com'
+  },
+  {
+    title: 'New Year, New You',
+    series: 'Fresh Start',
+    date: 'January 5, 2026',
+    thumbnail: 'https://images.unsplash.com/photo-1438032005730-c779502df39b?w=600&h=400&fit=crop',
+    videoUrl: 'https://youtube.com'
+  }
+];
+---
+
+<Layout title="Sermons - Epic Church">
+  <div class="min-h-screen bg-white">
+    <Header />
+
+    <main>
+      <PageHero
+        title="Latest Sermons"
+        subtitle="Watch and be inspired by God's Word"
+        backgroundColor="bg-blue-900"
+      />
+
+      <!-- Sermons Grid -->
+      <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12" data-aos="fade-up">
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              Catch up on recent messages or dive into a series.
+              Each sermon is designed to help you grow in your faith and apply God's truth to your life.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {sermons.map((sermon, index) => (
+              <div data-aos-delay={index * 100}>
+                <SermonCard {...sermon} />
+              </div>
+            ))}
+          </div>
+
+          <!-- Load More Button -->
+          <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+            <button class="bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition-colors">
+              Load More Sermons
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Series Highlight -->
+      <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+            <div class="grid md:grid-cols-2 gap-0">
+              <img
+                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=400&fit=crop"
+                alt="Current Series"
+                class="w-full h-full object-cover"
+              />
+              <div class="p-8 flex flex-col justify-center">
+                <h3 class="text-3xl font-bold mb-4">Current Series</h3>
+                <p class="text-xl mb-2">Living with Purpose</p>
+                <p class="mb-6 text-white/90">
+                  Discover how to live a life full of meaning and aligned with God's plan for you.
+                </p>
+                <a href="#" class="inline-block bg-white text-blue-900 px-6 py-2 rounded-md font-semibold hover:bg-gray-100 transition-colors w-fit">
+                  Watch Series
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Subscribe Section -->
+      <section class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-3xl font-bold mb-4 text-gray-900">Never Miss a Message</h3>
+          <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Subscribe to our YouTube channel or podcast to get notifications
+            when new sermons are available.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="https://youtube.com" target="_blank" class="inline-block bg-red-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-red-700 transition-colors">
+              Subscribe on YouTube
+            </a>
+            <a href="#" class="inline-block bg-purple-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-purple-700 transition-colors">
+              Listen on Podcast
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>

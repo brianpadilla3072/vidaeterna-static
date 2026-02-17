@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Layout title="Epic Kidz - Epic Church">
+  <div class="min-h-screen bg-white">
+    <Header />
+
+    <main>
+      <PageHero
+        title="Epic Kidz"
+        subtitle="Where Kids Meet Jesus!"
+        backgroundImage="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1600&h=600&fit=crop"
+      />
+
+      <!-- Content -->
+      <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <div class="mb-12">
+            <h2 class="text-4xl font-bold mb-6 text-gray-900">A Safe Place to Grow</h2>
+            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+              Epic Kidz is a fun and safe environment where children can learn about
+              God's love through age-appropriate lessons, worship, games, and activities.
+              We partner with parents to help kids build a strong foundation of faith.
+            </p>
+          </div>
+
+          <div class="bg-blue-50 p-8 rounded-lg mb-12 border-l-4 border-blue-600">
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Age Groups</h3>
+            <div class="space-y-3">
+              <p class="text-gray-700">
+                <strong class="text-blue-600">Nursery:</strong> Birth - 2 years
+              </p>
+              <p class="text-gray-700">
+                <strong class="text-blue-600">Preschool:</strong> 3 - 5 years
+              </p>
+              <p class="text-gray-700">
+                <strong class="text-blue-600">Elementary:</strong> Grades K - 5th
+              </p>
+            </div>
+            <div class="mt-6 pt-6 border-t border-blue-200">
+              <p class="text-gray-700">
+                <strong>Available during:</strong> Sunday 9am & 11am services
+              </p>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-6 rounded-lg border border-gray-200">
+              <h3 class="text-xl font-bold mb-4 text-gray-900">What We Offer</h3>
+              <ul class="space-y-3 text-gray-600">
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Bible-based curriculum
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Engaging worship and music
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Interactive games and activities
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Small group discussions
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Special events and parties
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-gray-200">
+              <h3 class="text-xl font-bold mb-4 text-gray-900">Safety & Security</h3>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Your child's safety is our top priority. All volunteers are
+                background-checked and trained.
+              </p>
+              <ul class="space-y-2 text-gray-600 text-sm">
+                <li class="flex items-start">
+                  <svg class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Secure check-in/check-out system
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Name tags for identification
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Clean, supervised environments
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Medical alert system
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Parent Resources -->
+          <div class="bg-gradient-to-r from-purple-900 to-purple-700 text-white rounded-lg overflow-hidden">
+            <div class="p-8">
+              <h3 class="text-3xl font-bold mb-4">For Parents</h3>
+              <p class="text-lg mb-6">
+                We believe parents are the primary spiritual influence in their
+                child's life. That's why we provide resources to help you continue
+                the conversation at home.
+              </p>
+              <div class="grid md:grid-cols-3 gap-4 text-sm">
+                <div class="bg-white/10 p-4 rounded">
+                  <strong>Weekly Lessons</strong>
+                  <p class="mt-2 text-white/90">Download family discussion guides</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded">
+                  <strong>Memory Verses</strong>
+                  <p class="mt-2 text-white/90">Practice together at home</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded">
+                  <strong>Activities</strong>
+                  <p class="mt-2 text-white/90">Fun ways to reinforce learning</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+          <h3 class="text-3xl font-bold mb-4 text-gray-900">First Time Visiting?</h3>
+          <p class="text-xl text-gray-600 mb-6">
+            We can't wait to meet your family! Have questions? We're here to help.
+          </p>
+          <a href="/contact" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition-colors">
+            Contact Kidz Team
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>

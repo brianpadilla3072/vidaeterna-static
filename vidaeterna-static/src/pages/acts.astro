@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Layout title="ACTS Ministry - Epic Church">
+  <div class="min-h-screen bg-white">
+    <Header />
+
+    <main>
+      <PageHero
+        title="ACTS Ministry"
+        subtitle="Advancing Christ Through Service"
+        backgroundImage="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=1600&h=600&fit=crop"
+      />
+
+      <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <div class="mb-12">
+            <h2 class="text-4xl font-bold mb-6 text-gray-900">What is ACTS?</h2>
+            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+              ACTS (Advancing Christ Through Service) is our ministry dedicated to
+              prayer, worship, and community outreach. We believe in putting faith
+              into action by serving our local community and beyond.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              Through ACTS, we seek to be the hands and feet of Jesus, meeting
+              practical needs while sharing the hope of the Gospel.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-blue-50 p-8 rounded-lg">
+              <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Prayer Gatherings</h3>
+              <p class="text-gray-600 mb-4">
+                Join us for powerful times of corporate prayer where we seek God's
+                presence and intercede for our community and world.
+              </p>
+              <p class="text-sm text-gray-600">
+                <strong>When:</strong> First Friday of each month at 7:00 PM
+              </p>
+            </div>
+
+            <div class="bg-blue-50 p-8 rounded-lg">
+              <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Worship Nights</h3>
+              <p class="text-gray-600 mb-4">
+                Extended times of worship and praise, creating space to encounter
+                God's presence in a deeper way.
+              </p>
+              <p class="text-sm text-gray-600">
+                <strong>When:</strong> Quarterly special events
+              </p>
+            </div>
+
+            <div class="bg-blue-50 p-8 rounded-lg">
+              <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Community Outreach</h3>
+              <p class="text-gray-600 mb-4">
+                Serve our local community through various initiatives including
+                food drives, clothing distribution, and community events.
+              </p>
+              <p class="text-sm text-gray-600">
+                <strong>When:</strong> Monthly service projects
+              </p>
+            </div>
+
+            <div class="bg-blue-50 p-8 rounded-lg">
+              <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Missions Support</h3>
+              <p class="text-gray-600 mb-4">
+                Partner with missionaries and organizations around the world to
+                spread the Gospel and meet physical needs.
+              </p>
+              <p class="text-sm text-gray-600">
+                <strong>Focus:</strong> Local and global missions
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-lg p-12 mb-12">
+            <h3 class="text-3xl font-bold mb-6 text-center">Current Initiatives</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="text-center">
+                <h4 class="text-xl font-bold mb-3">Food Pantry</h4>
+                <p class="text-white/90 text-sm">
+                  Providing groceries to families in need every week
+                </p>
+              </div>
+              <div class="text-center">
+                <h4 class="text-xl font-bold mb-3">Back to School</h4>
+                <p class="text-white/90 text-sm">
+                  Supplying backpacks and school supplies to students
+                </p>
+              </div>
+              <div class="text-center">
+                <h4 class="text-xl font-bold mb-3">Holiday Outreach</h4>
+                <p class="text-white/90 text-sm">
+                  Blessing families with meals and gifts during holidays
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold mb-6 text-gray-900">Get Involved</h3>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              Whether through prayer, service, or giving, there's a place for you
+              in ACTS ministry. Join us in making a difference!
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="/volunteer" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition-colors">
+                Volunteer
+              </a>
+              <a href="/give" class="inline-block bg-gray-800 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-gray-900 transition-colors">
+                Support Missions
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600">
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Our Heart</h3>
+            <p class="text-gray-700 italic mb-4">
+              "For we are God's handiwork, created in Christ Jesus to do good works,
+              which God prepared in advance for us to do."
+            </p>
+            <p class="text-gray-600 text-sm">- Ephesians 2:10</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
