@@ -1,48 +1,141 @@
 ---
+interface Button {
+  text: string;
+  href: string;
+  variant?: 'primary' | 'outline';
+}
+
+interface Props {
+  title?: string;
+  videoSrc?: string;
+  audioSrc?: string;
+  buttons?: Button[];
+}
+
+const {
+  title = 'CONNECT WITH US',
+  videoSrc = 'https://www.epicchurchintl.org/files/uploads/NewSundayOpenerWebsite.mp4',
+  audioSrc = 'https://www.epicchurchintl.org/files/uploads/EPICSONG.mp3',
+  buttons = [
+    { text: 'Watch Live', href: '/watch-live', variant: 'primary' },
+    { text: 'Contact Us', href: '/contact-us', variant: 'outline' },
+  ],
+} = Astro.props;
 ---
 
-<section class="hero-with-gradient relative py-24 text-white overflow-hidden">
-  <!-- Background Image -->
-  <div class="absolute inset-0 z-0">
-    <img
-      src="https://images.unsplash.com/photo-1667068114508-0055f7fb25a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjB3b3JzaGlwJTIwaGFuZHMlMjByYWlzZWR8ZW58MXx8fHwxNzcwMTk4MzgyfDA&ixlib=rb-4.1.0&q=80&w=1080"
-      alt="Epic Church"
-      class="w-full h-full object-cover"
-    />
-    <div class="absolute inset-0 bg-black/40"></div>
-  </div>
+<section id="hero" class="hero-with-gradient relative text-white overflow-hidden" style="height: 100vh; min-height: 676px;">
+  <!-- Overlay image (empty, same as reference) -->
+  <img src="" alt="" style="display:none;" />
+
+  <!-- Video Background -->
+  <video
+    class="absolute inset-0 w-full h-full object-cover z-0"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source src={videoSrc} type="video/mp4" />
+  </video>
 
   <!-- Content -->
-  <div class="relative z-10 container mx-auto px-4 text-center py-20">
-    <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-      TRANSFORMED LIVES. <span class="text-blue-400">PERIOD</span>
+  <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+    <h1 class="text-5xl md:text-7xl font-bold mb-8">
+      {title}
     </h1>
-    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-      At EPIC Church no matter your age, background, or status, you matter to God.
-    </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a
-        href="#watch-live"
-        class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors text-lg"
-      >
-        Watch Live
-      </a>
-      <a
-        href="#contact"
-        class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-md hover:bg-white hover:text-blue-900 transition-colors text-lg"
-      >
-        Contact Us
-      </a>
+      {buttons.map((btn) => (
+        <a
+          href={btn.href}
+          class={
+            btn.variant === 'outline'
+              ? 'bg-transparent border-2 border-white text-white px-8 py-3 rounded-md hover:bg-white hover:text-blue-900 transition-colors text-lg font-semibold'
+              : 'bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors text-lg font-semibold'
+          }
+        >
+          {btn.text}
+        </a>
+      ))}
     </div>
   </div>
 
   <!-- Curve at bottom -->
-  <div class="absolute bottom-0 left-0 right-0 z-10">
-    <svg viewBox="0 0 1440 120" class="w-full h-auto fill-white" preserveAspectRatio="none">
-      <path d="M0,0 Q720,120 1440,0 L1440,120 L0,120 Z"></path>
-    </svg>
-  </div>
+  <img class="curve curve-bottom absolute bottom-0 left-0 w-full z-10" src="/images/main/curve-white.svg" alt="" />
+
 </section>
+
+<!-- Audio toggle — fixed just below the header, only visible while hero is on screen -->
+<div id="audio-player-bar" style="position: fixed; top: 80px; right: 20px; z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
+  <audio id="homepage-audio" loop muted preload="auto">
+    <source src={audioSrc} type="audio/mpeg" />
+  </audio>
+  <button
+    id="audio-toggle-btn"
+    class="muted"
+    aria-label="Toggle Audio"
+    style="
+      background: rgba(16,55,91,0.85);
+      border: 2px solid white;
+      color: white;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    "
+  >🔇</button>
+</div>
+
+<script>
+  const audio = document.getElementById('homepage-audio') as HTMLAudioElement;
+  const btn = document.getElementById('audio-toggle-btn') as HTMLButtonElement;
+  const bar = document.getElementById('audio-player-bar') as HTMLElement | null;
+  const hero = document.getElementById('hero');
+
+  // Position the bar just below the actual header height
+  const header = document.getElementById('site-header');
+  if (header && bar) {
+    const updateTop = () => {
+      bar.style.top = (header.offsetHeight + 8) + 'px';
+    };
+    updateTop();
+    window.addEventListener('resize', updateTop);
+  }
+
+  // Show only while the hero section is visible
+  if (hero && bar) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          bar.style.opacity = entry.isIntersecting ? '1' : '0';
+          bar.style.pointerEvents = entry.isIntersecting ? 'auto' : 'none';
+        });
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(hero);
+  }
+
+  // Mute / unmute toggle
+  if (audio && btn) {
+    btn.addEventListener('click', () => {
+      if (audio.muted) {
+        audio.muted = false;
+        audio.play();
+        btn.textContent = '🔊';
+        btn.classList.remove('muted');
+      } else {
+        audio.muted = true;
+        btn.textContent = '🔇';
+        btn.classList.add('muted');
+      }
+    });
+  }
+</script>
 
 <style>
   .hero-with-gradient::before {
@@ -57,5 +150,10 @@
     background: #10375B;
     background: linear-gradient(180deg, #10375B 0%, rgba(255, 255, 255, 0) 27%);
     pointer-events: none;
+  }
+
+  .curve-bottom {
+    display: block;
+    height: auto;
   }
 </style>

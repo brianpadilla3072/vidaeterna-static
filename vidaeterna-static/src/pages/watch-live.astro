@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
+import IconCard from '../components/IconCard.astro';
+import InfoBox from '../components/InfoBox.astro';
 ---
 
 <Layout title="Watch Live - Epic Church">
@@ -36,7 +38,7 @@ import PageHero from '../components/PageHero.astro';
           </div>
 
           <!-- Service Times -->
-          <div class="bg-blue-50 p-8 rounded-lg mb-12 border-l-4 border-blue-600">
+          <InfoBox class="mb-12">
             <h3 class="text-2xl font-bold mb-6 text-gray-900 text-center">Service Times</h3>
             <div class="grid md:grid-cols-3 gap-6 text-center">
               <div>
@@ -52,49 +54,33 @@ import PageHero from '../components/PageHero.astro';
                 <p class="text-gray-600">Online Only</p>
               </div>
             </div>
-          </div>
+          </InfoBox>
 
           <!-- Features -->
           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div class="text-center p-6 bg-white rounded-lg border border-gray-200">
-              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                </svg>
-              </div>
-              <h4 class="font-bold mb-2 text-gray-900">HD Quality</h4>
-              <p class="text-gray-600 text-sm">Crystal clear video streaming</p>
-            </div>
+            <IconCard title="HD Quality" description="Crystal clear video streaming" variant="bordered">
+              <svg slot="icon" class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+            </IconCard>
 
-            <div class="text-center p-6 bg-white rounded-lg border border-gray-200">
-              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                </svg>
-              </div>
-              <h4 class="font-bold mb-2 text-gray-900">Live Chat</h4>
-              <p class="text-gray-600 text-sm">Connect with others watching</p>
-            </div>
+            <IconCard title="Live Chat" description="Connect with others watching" variant="bordered">
+              <svg slot="icon" class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+              </svg>
+            </IconCard>
 
-            <div class="text-center p-6 bg-white rounded-lg border border-gray-200">
-              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                </svg>
-              </div>
-              <h4 class="font-bold mb-2 text-gray-900">Mobile Friendly</h4>
-              <p class="text-gray-600 text-sm">Watch on any device</p>
-            </div>
+            <IconCard title="Mobile Friendly" description="Watch on any device" variant="bordered">
+              <svg slot="icon" class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              </svg>
+            </IconCard>
 
-            <div class="text-center p-6 bg-white rounded-lg border border-gray-200">
-              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <h4 class="font-bold mb-2 text-gray-900">On Demand</h4>
-              <p class="text-gray-600 text-sm">Watch previous services anytime</p>
-            </div>
+            <IconCard title="On Demand" description="Watch previous services anytime" variant="bordered">
+              <svg slot="icon" class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </IconCard>
           </div>
 
           <!-- Call to Action Grid -->
@@ -104,9 +90,7 @@ import PageHero from '../components/PageHero.astro';
               <p class="mb-6 text-white/90">
                 Watch previous sermons and services anytime on our sermon archive.
               </p>
-              <a href="/sermons" class="inline-block bg-white text-blue-900 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors">
-                View Sermon Archive
-              </a>
+              <a href="/sermons" class="btn-secondary-sm">View Sermon Archive</a>
             </div>
 
             <div class="bg-gradient-to-br from-gray-900 to-gray-700 text-white rounded-lg p-8">
@@ -114,22 +98,18 @@ import PageHero from '../components/PageHero.astro';
               <p class="mb-6 text-white/90">
                 Nothing beats worshiping together! We'd love to see you in person.
               </p>
-              <a href="/im-new" class="inline-block bg-white text-gray-900 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors">
-                Plan Your Visit
-              </a>
+              <a href="/im-new" class="inline-block bg-white text-gray-900 px-6 py-2 rounded-md font-semibold hover:bg-gray-100 transition-colors">Plan Your Visit</a>
             </div>
           </div>
 
-          <!-- Give Online Section -->
+          <!-- Give Online -->
           <div class="bg-blue-50 p-8 rounded-lg text-center">
             <h3 class="text-2xl font-bold mb-4 text-gray-900">Give Online</h3>
             <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
               Watching online? You can still participate in giving and support
               the ministry of Epic Church.
             </p>
-            <a href="/give" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition-colors">
-              Give Now
-            </a>
+            <a href="/give" class="btn-primary">Give Now</a>
           </div>
         </div>
       </section>

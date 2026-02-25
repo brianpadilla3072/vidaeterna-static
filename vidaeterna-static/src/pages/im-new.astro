@@ -4,6 +4,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
 import PlanVisitSection from '../components/PlanVisitSection.astro';
+import ChecklistItem from '../components/ChecklistItem.astro';
+import InfoBox from '../components/InfoBox.astro';
 ---
 
 <Layout title="I'm New - Epic Church">
@@ -21,7 +23,7 @@ import PlanVisitSection from '../components/PlanVisitSection.astro';
       <section class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-4xl">
           <div data-aos="fade-up">
-            <h2 class="text-4xl font-bold mb-6 text-gray-900">What to Expect</h2>
+            <h2 class="section-title">What to Expect</h2>
             <p class="text-gray-600 mb-6 text-lg leading-relaxed">
               We are a community of faith where you can believe, belong, and become
               the best version of yourself. Whether you're exploring faith for the first time
@@ -29,43 +31,22 @@ import PlanVisitSection from '../components/PlanVisitSection.astro';
             </p>
           </div>
 
-          <div class="bg-blue-50 p-8 rounded-lg mb-8 border-l-4 border-blue-600" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="text-2xl font-bold mb-4 text-gray-900">Welcome Home Center</h3>
+          <InfoBox title="Welcome Home Center" class="mb-8" data-aos="fade-up" data-aos-delay="100">
             <p class="text-gray-700 leading-relaxed">
               First time here? Stop at our Welcome Home center to receive a greeting,
               a gift, and answers to any questions you may have. Our team is ready to
               help you feel at home from the moment you arrive.
             </p>
-          </div>
+          </InfoBox>
 
           <div class="grid md:grid-cols-2 gap-8 mb-8">
             <div class="bg-white p-6 rounded-lg border border-gray-200" data-aos="fade-right" data-aos-delay="100">
               <h3 class="text-xl font-bold mb-3 text-gray-900">We Are:</h3>
               <ul class="space-y-2 text-gray-600">
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Non-denominational
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Bible-teaching
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Spirit-filled
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Christ-centered
-                </li>
+                <ChecklistItem text="Non-denominational" />
+                <ChecklistItem text="Bible-teaching" />
+                <ChecklistItem text="Spirit-filled" />
+                <ChecklistItem text="Christ-centered" />
               </ul>
             </div>
 
@@ -86,9 +67,7 @@ import PlanVisitSection from '../components/PlanVisitSection.astro';
           </div>
 
           <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-            <a href="/contact" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition-colors">
-              Get Directions
-            </a>
+            <a href="/contact" class="btn-primary">Get Directions</a>
           </div>
         </div>
       </section>

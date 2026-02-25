@@ -1,0 +1,41 @@
+---
+/**
+ * IconCard — tarjeta con icono circular + título + descripción.
+ *
+ * Variantes:
+ *   default  → fondo azul claro (bg-blue-50), ícono grande azul
+ *   bordered → fondo blanco con borde (bg-white border-gray-200), ícono pequeño azul claro
+ *
+ * El ícono SVG se pasa vía slot="icon".
+ */
+
+interface Props {
+  title: string;
+  description: string;
+  /** 'default' | 'bordered' */
+  variant?: 'default' | 'bordered';
+  aosDelay?: number;
+}
+
+const {
+  title,
+  description,
+  variant = 'default',
+  aosDelay = 0,
+} = Astro.props;
+
+const cardClass = variant === 'bordered' ? 'card-info-bordered' : 'card-info';
+const iconBgClass = variant === 'bordered' ? 'icon-circle-sm' : 'icon-circle-lg';
+---
+
+<div
+  class={cardClass}
+  data-aos="fade-up"
+  data-aos-delay={aosDelay}
+>
+  <div class={iconBgClass}>
+    <slot name="icon" />
+  </div>
+  <h3 class="text-2xl font-bold mb-3 text-gray-900">{title}</h3>
+  <p class="text-gray-600">{description}</p>
+</div>

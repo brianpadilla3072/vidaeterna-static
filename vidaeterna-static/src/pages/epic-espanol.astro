@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
+import InfoBox from '../components/InfoBox.astro';
+import ChecklistItem from '../components/ChecklistItem.astro';
+import CTASection from '../components/CTASection.astro';
 ---
 
 <Layout title="Epic Español - Epic Church">
@@ -18,57 +21,29 @@ import PageHero from '../components/PageHero.astro';
 
       <section class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-4xl">
-          <h2 class="text-4xl font-bold mb-6 text-gray-900">Nuestro Ministerio</h2>
+          <h2 class="section-title">Nuestro Ministerio</h2>
           <p class="text-gray-600 text-lg leading-relaxed mb-8">
             Epic Español es un ministerio dedicado a alcanzar y servir a la comunidad
             hispana con el amor de Cristo. Creemos que cada persona es preciosa,
             poderosa y tiene un propósito en Cristo.
           </p>
 
-          <div class="bg-blue-50 p-8 rounded-lg mb-8 border-l-4 border-blue-600">
-            <h3 class="text-2xl font-bold mb-4 text-gray-900">Horarios de Servicio</h3>
+          <InfoBox title="Horarios de Servicio" class="mb-8">
             <p class="text-gray-700 text-lg">
               <strong class="text-blue-600">Domingos</strong> a las 2:00 PM
             </p>
-            <p class="text-gray-600 mt-2">
-              Servicios en vivo y en línea disponibles
-            </p>
-          </div>
+            <p class="text-gray-600 mt-2">Servicios en vivo y en línea disponibles</p>
+          </InfoBox>
 
           <div class="grid md:grid-cols-2 gap-8 mb-12">
             <div class="bg-white p-6 rounded-lg border border-gray-200">
               <h3 class="text-xl font-bold mb-4 text-gray-900">Lo Que Ofrecemos</h3>
               <ul class="space-y-3 text-gray-600">
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Enseñanza bíblica en español
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Adoración contemporánea
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Grupos pequeños
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Eventos especiales
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Ministerio de niños
-                </li>
+                <ChecklistItem text="Enseñanza bíblica en español" />
+                <ChecklistItem text="Adoración contemporánea" />
+                <ChecklistItem text="Grupos pequeños" />
+                <ChecklistItem text="Eventos especiales" />
+                <ChecklistItem text="Ministerio de niños" />
               </ul>
             </div>
 
@@ -81,18 +56,17 @@ import PageHero from '../components/PageHero.astro';
               </p>
             </div>
           </div>
-
-          <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-lg p-8 text-center">
-            <h3 class="text-3xl font-bold mb-4">¡Te Esperamos!</h3>
-            <p class="text-xl mb-6">
-              Ven y sé parte de esta familia que te ama y te acepta tal como eres.
-            </p>
-            <a href="/contact" class="inline-block bg-white text-blue-900 px-8 py-3 rounded-md text-lg font-semibold hover:bg-gray-100 transition-colors">
-              Contáctanos
-            </a>
-          </div>
         </div>
       </section>
+
+      <CTASection
+        title="¡Te Esperamos!"
+        description="Ven y sé parte de esta familia que te ama y te acepta tal como eres."
+        buttonText="Contáctanos"
+        buttonHref="/contact"
+        variant="gradient"
+        buttonStyle="secondary"
+      />
     </main>
 
     <Footer />

@@ -10,29 +10,170 @@ import EventsSection from '../components/EventsSection.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Epic Church">
+<Layout
+  title="Epic Church"
+  description="Epic Church - A community of faith in Sayreville, NJ"
+>
   <div class="min-h-screen bg-white">
-    <Header />
+    <Header
+      transparent={true}
+      logo={{ src: '/images/main/epic-logo.png', alt: 'Epic Church Intl', href: '/' }}
+      navItems={[
+        { text: "I'm New", href: '/im-new' },
+        { text: 'About', href: '/about' },
+        {
+          text: 'Ministries',
+          href: '/ministries',
+          children: [
+            { text: 'Epic Youth', href: '/ministries/epic-youth' },
+            { text: 'Epic Kidz', href: '/epic-kidz' },
+            { text: 'Epic Español', href: '/ministries/epic-espanol' },
+            { text: 'ACTS', href: '/acts' },
+            { text: 'Ministry Masterclass', href: '/ministry-masterclass' },
+            { text: 'Next Steps', href: '/next-steps' },
+          ],
+        },
+        {
+          text: 'Epic Life Groups',
+          href: '/life-groups',
+          children: [
+            { text: 'Find a Life Group', href: '/find-a-life-group' },
+            { text: 'Lead a Life Group', href: '/lead-a-life-group' },
+          ],
+        },
+        {
+          text: 'Sermons',
+          href: '/sermon-series',
+          children: [{ text: 'Sermons', href: '/sermons' }],
+        },
+        {
+          text: 'MORE',
+          href: '/more',
+          children: [
+            { text: 'VOLUNTEER', href: 'https://www.jotform.com/form/71644822193155' },
+            { text: 'Baby / Family Dedication', href: 'https://www.jotform.com/form/82684502193156' },
+            { text: 'Water Baptism', href: 'https://form.jotform.com/220974260890157' },
+            { text: 'Connect Card', href: '/connect-card-' },
+            { text: 'Wedding Form', href: 'https://form.jotform.com/EpicChurchIntl/wedding-ceremony-request-form' },
+          ],
+        },
+      ]}
+      ctaButton={{ text: 'Watch Live', href: '/watch-live' }}
+      givePaypalId="X8WWJ8TVF4S24"
+    />
     <main>
-      <div data-aos="fade-in">
-        <HeroSection />
-      </div>
-      <div data-aos="fade-up" data-aos-delay="100">
-        <AboutSection />
-      </div>
-      <div data-aos="fade-up" data-aos-delay="200">
-        <MinistriesCallouts />
-      </div>
-      <div data-aos="fade-up" data-aos-delay="100">
-        <PlanVisitSection />
-      </div>
-      <div data-aos="fade-up" data-aos-delay="100">
-        <SermonSection />
-      </div>
-      <div data-aos="fade-up" data-aos-delay="100">
-        <EventsSection />
-      </div>
+      <HeroSection
+        title="CONNECT WITH US"
+        videoSrc="https://www.epicchurchintl.org/files/uploads/NewSundayOpenerWebsite.mp4"
+        audioSrc="https://www.epicchurchintl.org/files/uploads/EPICSONG.mp3"
+        buttons={[
+          { text: 'Watch Live', href: '/watch-live', variant: 'primary' },
+          { text: 'Contact Us', href: '/contact-us', variant: 'outline' },
+        ]}
+      />
+      <AboutSection
+        label="ABOUT US"
+        title="TRANSFORMED LIVES."
+        titleHighlight="PERIOD"
+        description="At EPIC Church no matter your age, background, or status, you matter to God and therefore, you matter to us. We are a multi-generational, multi-ethnic church that reflects what heaven must look like!"
+        ctaText="Learn More"
+        ctaHref="/about"
+        images={[
+          {
+            src: 'https://www.epicchurchintl.org/images/r/275936823_5602693846427151_3347189066762514707_n/460xg2-26-1364-913/275936823_5602693846427151_3347189066762514707_n.jpg',
+            alt: 'Church worship',
+          },
+          {
+            src: 'https://www.epicchurchintl.org/images/r/241548431_5062031687160039_868781867178746428_n/460xg206-154-763-517/241548431_5062031687160039_868781867178746428_n.jpg',
+            alt: 'Diverse community',
+          },
+        ]}
+      />
+      <MinistriesCallouts
+        ministries={[
+          {
+            title: 'Epic Youth',
+            image: 'https://www.epicchurchintl.org/images/r/img_1517/400xg164-766-2953-3207/img_1517.jpg',
+            bgColor: '#141E27',
+            link: '/ministries/epic-youth',
+          },
+          {
+            title: 'Epic Kidz',
+            image: 'https://www.epicchurchintl.org/images/r/0o5a1073/400xg1177-0-5051-3392/0o5a1073.jpg',
+            bgColor: '#0c305d',
+            link: '/epic-kidz',
+          },
+          {
+            title: 'Grow Your Faith',
+            image: 'https://www.epicchurchintl.org/images/r/279458517_5724837127546155_7460128086310909804_n/400xg0-0-1440-1261/279458517_5724837127546155_7460128086310909804_n.jpg',
+            bgColor: '#05203a',
+            link: '/ministries',
+          },
+        ]}
+      />
+      <PlanVisitSection
+        title="PLAN YOUR VISIT"
+        description="EPIC is more than just our name; we believe that Everyone is Precious In Christ, Everyone is Powerful In Christ, and Everyone has Purpose In Christ. that's what God has done and is doing, in us and through us. Join us at a service!"
+        serviceTimesLabel="SERVICE TIMES"
+        serviceTimesLines={['Sunday - 9am & 11am', '(2pm online only)']}
+        addressLabel="ADDRESS"
+        addressLines={['2707 Main St Extension,', 'Sayreville, NJ 08872']}
+        phone="(732) 727-9500"
+        images={[
+          {
+            src: 'https://www.epicchurchintl.org/images/r/273156776_5477393342290536_2525738704934073148_n/460xg36-0-1744-1114/273156776_5477393342290536_2525738704934073148_n.jpg',
+            alt: 'Church building',
+          },
+          {
+            src: 'https://www.epicchurchintl.org/images/r/dsc01554/460xg582-0-4356-2460/dsc01554.jpg',
+            alt: 'Community gathering',
+          },
+        ]}
+      />
+      <SermonSection
+        sermon={{
+          title: 'Hear Him',
+          series: 'Hear Him',
+          date: 'Jan 25, 2026',
+          youtubeId: 'LmmLBZcCMX4',
+          thumbnail: 'https://www.epicchurchintl.org/images/r/media/image/6978607c034bc/c480x270/6978607c034bc.jpg',
+          embedUrl: 'https://www.youtube.com/embed/LmmLBZcCMX4?autoplay=1&feature=oembed',
+        }}
+        viewMoreHref="/sermons"
+        backgroundImage="https://www.epicchurchintl.org/images/r/sermons-header-copy/1440xg145-0-1259-464/sermons-header-copy.jpg"
+      />
+      <EventsSection
+        title="UPCOMING EVENTS"
+        viewAllHref="/events"
+        events={[]}
+        emptyMessage="No events were found."
+      />
     </main>
-    <Footer />
+    <Footer
+      churchName="EPIC CHURCH"
+      logoSrc="https://via.placeholder.com/150x50/1e3a8a/ffffff?text=EPIC+CHURCH"
+      logoAlt="Epic Church Logo"
+      tagline="A non-denominational, Bible-teaching, Christ-centered church dedicated to transforming lives through the power of faith."
+      address="2707 Main St Extension, Sayreville, NJ 08872"
+      phone="(732) 727-9500"
+      socialLinks={[
+        { platform: 'facebook', href: 'https://facebook.com' },
+        { platform: 'twitter', href: 'https://twitter.com' },
+        { platform: 'instagram', href: 'https://instagram.com' },
+      ]}
+      serviceTimesLabel="Sunday Services"
+      serviceTimesLines={['Sunday - 9am & 11am', '(2pm online only)']}
+      menuItems={[
+        { text: "I'm New", href: '/im-new' },
+        { text: 'About Us', href: '/about' },
+        { text: 'Ministries', href: '/ministries' },
+        { text: 'Sermons', href: '/sermons' },
+        { text: 'Give', href: '/give' },
+        { text: 'Contact', href: '/contact' },
+      ]}
+      copyright="© 2026 Epic Church · All Rights Reserved"
+      poweredByText="The A Group"
+      poweredByHref="https://theagroup.com"
+    />
   </div>
 </Layout>

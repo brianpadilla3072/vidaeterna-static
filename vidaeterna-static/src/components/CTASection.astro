@@ -1,0 +1,93 @@
+---
+/**
+ * CTASection — sección de llamada a la acción reutilizable.
+ *
+ * Variantes de fondo:
+ *   dark  (default) → bg-blue-900 text-white
+ *   light           → bg-gray-50  text-gray-900
+ *   gradient        → bg-gradient-to-r from-blue-900 to-blue-700 text-white (con rounded-lg)
+ */
+
+interface Props {
+  title: string;
+  description?: string;
+  buttonText?: string;
+  buttonHref?: string;
+  /** 'dark' | 'light' | 'gradient' */
+  variant?: 'dark' | 'light' | 'gradient';
+  /** 'primary' (azul) | 'secondary' (blanco) */
+  buttonStyle?: 'primary' | 'secondary';
+  py?: string;
+  aosAnimation?: string;
+  aosDelay?: number;
+}
+
+const {
+  title,
+  description,
+  buttonText,
+  buttonHref = '#',
+  variant = 'dark',
+  buttonStyle,
+  py = 'py-16',
+  aosAnimation = 'fade-up',
+  aosDelay = 100,
+} = Astro.props;
+
+// Determinar clases según variante
+const isDark = variant === 'dark' || variant === 'gradient';
+const defaultButtonStyle = isDark ? 'secondary' : 'primary';
+const resolvedButtonStyle = buttonStyle ?? defaultButtonStyle;
+
+const sectionClass = {
+  dark:     `${py} bg-blue-900 text-white`,
+  light:    `${py} bg-gray-50`,
+  gradient: `${py} bg-white`, // el div interior lleva el gradiente
+}[variant];
+
+const innerWrapClass = variant === 'gradient'
+  ? 'container mx-auto px-4'
+  : 'container mx-auto px-4 text-center';
+
+const cardClass = variant === 'gradient'
+  ? 'bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-lg p-12 text-center'
+  : '';
+
+const titleClass = isDark
+  ? 'text-4xl font-bold mb-6'
+  : 'text-3xl font-bold mb-4 text-gray-900';
+
+const descClass = isDark
+  ? 'text-xl mb-8 max-w-2xl mx-auto text-white/90'
+  : 'text-xl text-gray-600 mb-8 max-w-2xl mx-auto';
+
+const btnClass = resolvedButtonStyle === 'secondary' ? 'btn-secondary' : 'btn-primary';
+---
+
+<section
+  class={sectionClass}
+  data-aos={aosAnimation}
+  data-aos-delay={aosDelay}
+>
+  <div class={innerWrapClass}>
+    {variant === 'gradient' ? (
+      <div class={cardClass}>
+        <h2 class={titleClass}>{title}</h2>
+        {description && <p class={descClass}>{description}</p>}
+        <slot />
+        {buttonText && (
+          <a href={buttonHref} class={btnClass}>{buttonText}</a>
+        )}
+      </div>
+    ) : (
+      <>
+        <h2 class={titleClass}>{title}</h2>
+        {description && <p class={descClass}>{description}</p>}
+        <slot />
+        {buttonText && (
+          <a href={buttonHref} class={btnClass}>{buttonText}</a>
+        )}
+      </>
+    )}
+  </div>
+</section>

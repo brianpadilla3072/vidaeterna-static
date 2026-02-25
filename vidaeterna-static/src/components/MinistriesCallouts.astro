@@ -1,24 +1,37 @@
 ---
-const ministries = [
-  {
-    title: 'Epic Youth',
-    image: 'https://images.unsplash.com/photo-1557240503-5ef8ff7a34c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3V0aCUyMGdyb3VwJTIwdGVlbmFnZXJzJTIwY2h1cmNofGVufDF8fHx8MTc3MDI5NDk3OHww&ixlib=rb-4.1.0&q=80&w=1080',
-    bgColor: '#141E27',
-    link: '#youth'
-  },
-  {
-    title: 'Epic Kidz',
-    image: 'https://images.unsplash.com/photo-1533656218217-315d259a8d70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlsZHJlbiUyMGtpZHMlMjBwbGF5aW5nJTIwY2h1cmNofGVufDF8fHx8MTc3MDMwNDg3NHww&ixlib=rb-4.1.0&q=80&w=1080',
-    bgColor: '#0c305d',
-    link: '#kids'
-  },
-  {
-    title: 'Grow Your Faith',
-    image: 'https://images.unsplash.com/photo-1667068114508-0055f7fb25a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjB3b3JzaGlwJTIwaGFuZHMlMjByYWlzZWR8ZW58MXx8fHwxNzcwMTk4MzgyfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    bgColor: '#05203a',
-    link: '#ministries'
-  }
-];
+interface Ministry {
+  title: string;
+  image: string;
+  bgColor: string;
+  link: string;
+}
+
+interface Props {
+  ministries?: Ministry[];
+}
+
+const {
+  ministries = [
+    {
+      title: 'Epic Youth',
+      image: 'https://www.epicchurchintl.org/images/r/img_1517/400xg164-766-2953-3207/img_1517.jpg',
+      bgColor: '#141E27',
+      link: '/ministries/epic-youth',
+    },
+    {
+      title: 'Epic Kidz',
+      image: 'https://www.epicchurchintl.org/images/r/0o5a1073/400xg1177-0-5051-3392/0o5a1073.jpg',
+      bgColor: '#0c305d',
+      link: '/epic-kidz',
+    },
+    {
+      title: 'Grow Your Faith',
+      image: 'https://www.epicchurchintl.org/images/r/279458517_5724837127546155_7460128086310909804_n/400xg0-0-1440-1261/279458517_5724837127546155_7460128086310909804_n.jpg',
+      bgColor: '#05203a',
+      link: '/ministries',
+    },
+  ],
+} = Astro.props;
 ---
 
 <section class="grid md:grid-cols-3">

@@ -1,27 +1,43 @@
 ---
-const latestSermon = {
-  title: 'Finding Purpose in Faith',
-  series: 'Living with Purpose',
-  date: 'January 28, 2026',
-  thumbnail: 'https://images.unsplash.com/photo-1690430979952-b2fe90150f44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYXN0b3IlMjBwcmVhY2hpbmclMjBzZXJtb258ZW58MXx8fHwxNzcwMjQwNTk5fDA&ixlib=rb-4.1.0&q=80&w=1080',
-  videoUrl: '#'
-};
+interface Sermon {
+  title: string;
+  series: string;
+  date: string;
+  youtubeId: string;
+  thumbnail: string;
+  embedUrl: string;
+}
+
+interface Props {
+  sermon?: Sermon;
+  viewMoreHref?: string;
+  backgroundImage?: string;
+}
+
+const {
+  sermon = {
+    title: 'Hear Him',
+    series: 'Hear Him',
+    date: 'Jan 25, 2026',
+    youtubeId: 'LmmLBZcCMX4',
+    thumbnail: 'https://www.epicchurchintl.org/images/r/media/image/6978607c034bc/c480x270/6978607c034bc.jpg',
+    embedUrl: 'https://www.youtube.com/embed/LmmLBZcCMX4?autoplay=1&feature=oembed',
+  },
+  viewMoreHref = '/sermons',
+  backgroundImage = 'https://www.epicchurchintl.org/images/r/sermons-header-copy/1440xg145-0-1259-464/sermons-header-copy.jpg',
+} = Astro.props;
 ---
 
-<section class="relative py-20 text-white">
+<section id="sermon" class="relative py-20 text-white">
+  <!-- Curve at top -->
+  <img class="curve curve-top absolute top-0 left-0 w-full z-10" src="/images/main/curve-white-inverted.svg" alt="" />
+
   <!-- Background Image with Overlay -->
   <div
     class="absolute inset-0 bg-cover bg-center"
-    style="background-image: url(https://images.unsplash.com/photo-1667068114508-0055f7fb25a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjB3b3JzaGlwJTIwaGFuZHMlMjByYWlzZWR8ZW58MXx8fHwxNzcwMTk4MzgyfDA&ixlib=rb-4.1.0&q=80&w=1080)"
+    style={`background-image: url(${backgroundImage})`}
   >
     <div class="absolute inset-0 bg-blue-900/90"></div>
-  </div>
-
-  <!-- Curve at top -->
-  <div class="absolute top-0 left-0 right-0 z-10">
-    <svg viewBox="0 0 1440 120" class="w-full h-auto fill-white rotate-180" preserveAspectRatio="none">
-      <path d="M0,0 Q720,120 1440,0 L1440,120 L0,120 Z"></path>
-    </svg>
   </div>
 
   <!-- Content -->
@@ -30,7 +46,7 @@ const latestSermon = {
       LATEST SERMON
     </h2>
     <div class="text-center mb-12">
-      <a href="#sermons" class="text-white hover:text-blue-200 underline">
+      <a href={viewMoreHref} class="text-white hover:text-blue-200 underline">
         VIEW MORE SERMONS
       </a>
     </div>
@@ -39,39 +55,54 @@ const latestSermon = {
     <div class="max-w-4xl mx-auto bg-white text-gray-900 rounded-lg overflow-hidden shadow-xl">
       <div class="md:flex">
         <!-- Video Thumbnail -->
-        <div class="md:w-1/2 relative group cursor-pointer">
+        <div class="md:w-1/2 relative group cursor-pointer sermon-thumb-wrap">
           <img
-            src={latestSermon.thumbnail}
-            alt={latestSermon.title}
+            id="sermon-thumb"
+            src={sermon.thumbnail}
+            alt={sermon.title}
             class="w-full h-full object-cover"
           />
           <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition-colors">
             <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center">
-              <!-- Play Icon -->
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="text-blue-600 ml-1">
                 <polygon points="5 3 19 12 5 21 5 3"></polygon>
               </svg>
             </div>
           </div>
+          <!-- Hidden iframe that loads on click -->
+          <div id="sermon-iframe-wrap" class="absolute inset-0 hidden">
+            <iframe
+              id="sermon-iframe"
+              width="100%"
+              height="100%"
+              src=""
+              data-src={sermon.embedUrl}
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
 
         <!-- Sermon Info -->
         <div class="md:w-1/2 p-8">
-          <h3 class="text-3xl mb-3">{latestSermon.title}</h3>
+          <h3 class="text-3xl mb-3">{sermon.title}</h3>
           <div class="text-sm text-gray-500 mb-4">
-            <time>{latestSermon.date}</time>
+            <time>{sermon.date}</time>
             <span class="mx-2">•</span>
-            <span>{latestSermon.series}</span>
+            <span>{sermon.series}</span>
           </div>
           <div class="flex flex-col gap-3">
             <a
-              href={latestSermon.videoUrl}
+              href={`https://www.youtube.com/watch?v=${sermon.youtubeId}`}
+              target="_blank"
+              rel="noopener noreferrer"
               class="inline-block text-blue-600 hover:text-blue-700"
             >
-              Watch
+              Watch on YouTube
             </a>
             <a
-              href="#sermon-detail"
+              href={viewMoreHref}
               class="inline-block text-blue-600 hover:text-blue-700"
             >
               View Sermon
@@ -82,3 +113,30 @@ const latestSermon = {
     </div>
   </div>
 </section>
+
+<script>
+  const thumb = document.getElementById('sermon-thumb');
+  const thumbWrap = document.querySelector('.sermon-thumb-wrap');
+  const iframeWrap = document.getElementById('sermon-iframe-wrap');
+  const iframe = document.getElementById('sermon-iframe') as HTMLIFrameElement;
+
+  if (thumbWrap && iframeWrap && iframe) {
+    thumbWrap.addEventListener('click', () => {
+      const src = iframe.getAttribute('data-src');
+      if (src) {
+        iframe.src = src;
+      }
+      iframeWrap.classList.remove('hidden');
+      const overlay = thumbWrap.querySelector('.absolute.inset-0') as HTMLElement;
+      if (overlay) overlay.style.display = 'none';
+      if (thumb) (thumb as HTMLElement).style.display = 'none';
+    });
+  }
+</script>
+
+<style>
+  .curve-top {
+    display: block;
+    height: auto;
+  }
+</style>

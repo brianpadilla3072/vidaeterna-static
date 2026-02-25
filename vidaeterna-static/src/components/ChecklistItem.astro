@@ -1,0 +1,37 @@
+---
+/**
+ * ChecklistItem — ítem de lista con ícono de check azul.
+ * Renderiza un <li>; debe usarse dentro de un <ul>.
+ *
+ * size: 'md' (w-5 h-5, mt-1)  — default
+ *       'sm' (w-4 h-4, mt-0.5) — versión compacta
+ */
+
+interface Props {
+  text: string;
+  size?: 'md' | 'sm';
+}
+
+const { text, size = 'md' } = Astro.props;
+
+const iconClass = size === 'sm'
+  ? 'w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0'
+  : 'w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0';
+---
+
+<li class="flex items-start">
+  <svg
+    class={iconClass}
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 13l4 4L19 7"
+    ></path>
+  </svg>
+  {text}
+</li>

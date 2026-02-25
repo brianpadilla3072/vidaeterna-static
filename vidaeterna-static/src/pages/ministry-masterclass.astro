@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
+import IconCard from '../components/IconCard.astro';
+import ChecklistItem from '../components/ChecklistItem.astro';
+import InfoBox from '../components/InfoBox.astro';
 ---
 
 <Layout title="Ministry Masterclass - Epic Church">
@@ -19,7 +22,7 @@ import PageHero from '../components/PageHero.astro';
       <section class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-4xl">
           <div class="mb-12">
-            <h2 class="text-4xl font-bold mb-6 text-gray-900">Level Up Your Leadership</h2>
+            <h2 class="section-title">Level Up Your Leadership</h2>
             <p class="text-gray-600 text-lg leading-relaxed mb-6">
               Ministry Masterclass is an intensive training program designed to equip
               current and aspiring leaders with the tools, knowledge, and character
@@ -32,35 +35,23 @@ import PageHero from '../components/PageHero.astro';
           </div>
 
           <div class="grid md:grid-cols-3 gap-8 mb-12">
-            <div class="text-center p-6 bg-blue-50 rounded-lg">
-              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold mb-3 text-gray-900">Biblical Foundation</h3>
-              <p class="text-gray-600 text-sm">Deep dive into God's Word and leadership principles</p>
-            </div>
+            <IconCard title="Biblical Foundation" description="Deep dive into God's Word and leadership principles">
+              <svg slot="icon" class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </IconCard>
 
-            <div class="text-center p-6 bg-blue-50 rounded-lg">
-              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold mb-3 text-gray-900">Practical Training</h3>
-              <p class="text-gray-600 text-sm">Real-world skills for effective ministry</p>
-            </div>
+            <IconCard title="Practical Training" description="Real-world skills for effective ministry">
+              <svg slot="icon" class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </IconCard>
 
-            <div class="text-center p-6 bg-blue-50 rounded-lg">
-              <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold mb-3 text-gray-900">Character Development</h3>
-              <p class="text-gray-600 text-sm">Growing in integrity and spiritual maturity</p>
-            </div>
+            <IconCard title="Character Development" description="Growing in integrity and spiritual maturity">
+              <svg slot="icon" class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </IconCard>
           </div>
 
           <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-lg p-12 mb-12">
@@ -75,7 +66,6 @@ import PageHero from '../components/PageHero.astro';
                   <li>• Servant leadership</li>
                 </ul>
               </div>
-
               <div class="bg-white/10 p-6 rounded-lg">
                 <h4 class="text-xl font-bold mb-3">Module 2: Vision & Strategy</h4>
                 <ul class="space-y-2 text-sm text-white/90">
@@ -85,7 +75,6 @@ import PageHero from '../components/PageHero.astro';
                   <li>• Executing with excellence</li>
                 </ul>
               </div>
-
               <div class="bg-white/10 p-6 rounded-lg">
                 <h4 class="text-xl font-bold mb-3">Module 3: Communication</h4>
                 <ul class="space-y-2 text-sm text-white/90">
@@ -95,7 +84,6 @@ import PageHero from '../components/PageHero.astro';
                   <li>• Difficult conversations</li>
                 </ul>
               </div>
-
               <div class="bg-white/10 p-6 rounded-lg">
                 <h4 class="text-xl font-bold mb-3">Module 4: Leadership Skills</h4>
                 <ul class="space-y-2 text-sm text-white/90">
@@ -105,7 +93,6 @@ import PageHero from '../components/PageHero.astro';
                   <li>• Leading change</li>
                 </ul>
               </div>
-
               <div class="bg-white/10 p-6 rounded-lg">
                 <h4 class="text-xl font-bold mb-3">Module 5: Spiritual Health</h4>
                 <ul class="space-y-2 text-sm text-white/90">
@@ -115,7 +102,6 @@ import PageHero from '../components/PageHero.astro';
                   <li>• Work-life balance</li>
                 </ul>
               </div>
-
               <div class="bg-white/10 p-6 rounded-lg">
                 <h4 class="text-xl font-bold mb-3">Module 6: Ministry Practice</h4>
                 <ul class="space-y-2 text-sm text-white/90">
@@ -132,96 +118,43 @@ import PageHero from '../components/PageHero.astro';
             <div class="bg-white p-6 rounded-lg border border-gray-200">
               <h3 class="text-2xl font-bold mb-4 text-gray-900">Program Details</h3>
               <ul class="space-y-3 text-gray-600">
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                  </svg>
-                  <span><strong>Duration:</strong> 12 weeks</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  <span><strong>Schedule:</strong> Wednesday evenings 7-9 PM</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                  </svg>
-                  <span><strong>Location:</strong> Epic Church Main Campus</span>
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  <span><strong>Investment:</strong> $99 (includes all materials)</span>
-                </li>
+                <ChecklistItem text="Duration: 12 weeks" />
+                <ChecklistItem text="Schedule: Wednesday evenings 7–9 PM" />
+                <ChecklistItem text="Location: Epic Church Main Campus" />
+                <ChecklistItem text="Investment: $99 (includes all materials)" />
               </ul>
             </div>
 
             <div class="bg-white p-6 rounded-lg border border-gray-200">
               <h3 class="text-2xl font-bold mb-4 text-gray-900">Who Should Attend?</h3>
               <ul class="space-y-3 text-gray-600">
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Current ministry leaders
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Aspiring leaders
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Life group leaders
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Ministry volunteers
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Business professionals
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Anyone sensing a call to leadership
-                </li>
+                <ChecklistItem text="Current ministry leaders" />
+                <ChecklistItem text="Aspiring leaders" />
+                <ChecklistItem text="Life group leaders" />
+                <ChecklistItem text="Ministry volunteers" />
+                <ChecklistItem text="Business professionals" />
+                <ChecklistItem text="Anyone sensing a call to leadership" />
               </ul>
             </div>
           </div>
 
           <div class="text-center mb-12">
             <h3 class="text-3xl font-bold mb-6 text-gray-900">Next Cohort Starts Soon!</h3>
-            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p class="section-subtitle mb-8">
               Space is limited to ensure personalized attention. Register today to
               secure your spot in the next Ministry Masterclass.
             </p>
-            <a href="/contact" class="inline-block bg-blue-600 text-white px-12 py-4 rounded-md text-xl font-semibold hover:bg-blue-700 transition-colors">
-              Register Now
-            </a>
+            <a href="/contact" class="btn-primary px-12 py-4 text-xl">Register Now</a>
           </div>
 
-          <div class="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600">
-            <h3 class="text-2xl font-bold mb-4 text-gray-900">Testimonial</h3>
+          <InfoBox title="Testimonial">
             <p class="text-gray-700 italic mb-4">
               "Ministry Masterclass transformed my understanding of leadership. The
               practical tools and biblical foundation have equipped me to lead with
               confidence and humility. I can't recommend it enough!"
             </p>
             <p class="text-gray-600 text-sm">- Sarah M., Life Group Leader</p>
-          </div>
+          </InfoBox>
         </div>
       </section>
     </main>

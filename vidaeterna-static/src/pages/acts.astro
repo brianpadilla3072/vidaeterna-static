@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
+import InfoBox from '../components/InfoBox.astro';
+import CTASection from '../components/CTASection.astro';
 ---
 
 <Layout title="ACTS Ministry - Epic Church">
@@ -19,7 +21,7 @@ import PageHero from '../components/PageHero.astro';
       <section class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-4xl">
           <div class="mb-12">
-            <h2 class="text-4xl font-bold mb-6 text-gray-900">What is ACTS?</h2>
+            <h2 class="section-title">What is ACTS?</h2>
             <p class="text-gray-600 text-lg leading-relaxed mb-6">
               ACTS (Advancing Christ Through Service) is our ministry dedicated to
               prayer, worship, and community outreach. We believe in putting faith
@@ -97,9 +99,12 @@ import PageHero from '../components/PageHero.astro';
             </div>
           </div>
 
-          <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-lg p-12 mb-12">
-            <h3 class="text-3xl font-bold mb-6 text-center">Current Initiatives</h3>
-            <div class="grid md:grid-cols-3 gap-6">
+          <CTASection
+            title="Current Initiatives"
+            variant="gradient"
+            py="py-12"
+          >
+            <div class="grid md:grid-cols-3 gap-6 mb-0">
               <div class="text-center">
                 <h4 class="text-xl font-bold mb-3">Food Pantry</h4>
                 <p class="text-white/90 text-sm">
@@ -119,32 +124,27 @@ import PageHero from '../components/PageHero.astro';
                 </p>
               </div>
             </div>
-          </div>
+          </CTASection>
 
-          <div class="text-center mb-12">
+          <div class="text-center mb-12 mt-12">
             <h3 class="text-3xl font-bold mb-6 text-gray-900">Get Involved</h3>
-            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p class="section-subtitle mb-8">
               Whether through prayer, service, or giving, there's a place for you
               in ACTS ministry. Join us in making a difference!
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-              <a href="/volunteer" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition-colors">
-                Volunteer
-              </a>
-              <a href="/give" class="inline-block bg-gray-800 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-gray-900 transition-colors">
-                Support Missions
-              </a>
+              <a href="/volunteer" class="btn-primary">Volunteer</a>
+              <a href="/give" class="btn-dark">Support Missions</a>
             </div>
           </div>
 
-          <div class="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600">
-            <h3 class="text-2xl font-bold mb-4 text-gray-900">Our Heart</h3>
+          <InfoBox title="Our Heart">
             <p class="text-gray-700 italic mb-4">
               "For we are God's handiwork, created in Christ Jesus to do good works,
               which God prepared in advance for us to do."
             </p>
             <p class="text-gray-600 text-sm">- Ephesians 2:10</p>
-          </div>
+          </InfoBox>
         </div>
       </section>
     </main>

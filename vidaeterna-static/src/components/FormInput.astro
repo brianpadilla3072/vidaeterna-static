@@ -1,0 +1,51 @@
+---
+/**
+ * FormInput — campo de formulario (input o textarea).
+ * Si se pasa `rows`, renderiza un <textarea>; si no, un <input>.
+ */
+
+interface Props {
+  label: string;
+  type?: string;
+  id: string;
+  name: string;
+  required?: boolean;
+  rows?: number;
+  placeholder?: string;
+}
+
+const {
+  label,
+  type = 'text',
+  id,
+  name,
+  required = false,
+  rows,
+  placeholder,
+} = Astro.props;
+---
+
+<div>
+  <label for={id} class="form-label">
+    {label}{required && ' *'}
+  </label>
+  {rows ? (
+    <textarea
+      id={id}
+      name={name}
+      rows={rows}
+      required={required || undefined}
+      placeholder={placeholder}
+      class="form-input"
+    ></textarea>
+  ) : (
+    <input
+      type={type}
+      id={id}
+      name={name}
+      required={required || undefined}
+      placeholder={placeholder}
+      class="form-input"
+    />
+  )}
+</div>

@@ -4,44 +4,45 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
 import MinistryCard from '../components/MinistryCard.astro';
+import CTASection from '../components/CTASection.astro';
 
 const ministries = [
   {
     name: 'Epic Youth',
     description: 'A dynamic ministry for teens in grades 6-12, featuring weekly gatherings, small groups, and life-changing events.',
     image: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=600&h=400&fit=crop',
-    link: '/epic-youth'
+    link: '/epic-youth',
   },
   {
     name: 'Epic Kidz',
-    description: 'A fun and safe environment where children can learn about God\'s love through age-appropriate lessons and activities.',
+    description: "A fun and safe environment where children can learn about God's love through age-appropriate lessons and activities.",
     image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&h=400&fit=crop',
-    link: '/epic-kidz'
+    link: '/epic-kidz',
   },
   {
     name: 'Epic Español',
     description: 'Ministerio en español dedicado a alcanzar y servir a la comunidad hispana con el amor de Cristo.',
     image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=400&fit=crop',
-    link: '/epic-espanol'
+    link: '/epic-espanol',
   },
   {
     name: 'ACTS',
     description: 'A ministry focused on prayer, worship, and community outreach to impact our local area.',
     image: 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=600&h=400&fit=crop',
-    link: '/acts'
+    link: '/acts',
   },
   {
     name: 'Ministry Masterclass',
     description: 'Equipping and training leaders to fulfill their calling with excellence and purpose.',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop',
-    link: '/ministry-masterclass'
+    link: '/ministry-masterclass',
   },
   {
     name: 'Next Steps',
     description: 'Your journey of faith starts here. Discover the next steps in your spiritual growth.',
     image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&h=400&fit=crop',
-    link: '/next-steps'
-  }
+    link: '/next-steps',
+  },
 ];
 ---
 
@@ -60,7 +61,7 @@ const ministries = [
       <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
           <div class="text-center mb-12" data-aos="fade-up">
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p class="section-subtitle">
               At Epic Church, we believe everyone has a place to belong and grow.
               Explore our ministries and find where you can make a difference.
             </p>
@@ -76,19 +77,12 @@ const ministries = [
         </div>
       </section>
 
-      <!-- Call to Action -->
-      <section class="py-16 bg-blue-900 text-white">
-        <div class="container mx-auto px-4 text-center" data-aos="fade-up" data-aos-delay="100">
-          <h2 class="text-4xl font-bold mb-6">Ready to Get Involved?</h2>
-          <p class="text-xl mb-8 max-w-2xl mx-auto">
-            Whether you're looking to serve, grow, or connect with others,
-            we have a place for you at Epic Church.
-          </p>
-          <a href="/contact" class="inline-block bg-white text-blue-900 px-8 py-3 rounded-md text-lg font-semibold hover:bg-gray-100 transition-colors">
-            Contact Us
-          </a>
-        </div>
-      </section>
+      <CTASection
+        title="Ready to Get Involved?"
+        description="Whether you're looking to serve, grow, or connect with others, we have a place for you at Epic Church."
+        buttonText="Contact Us"
+        buttonHref="/contact"
+      />
     </main>
 
     <Footer />

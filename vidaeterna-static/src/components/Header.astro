@@ -1,187 +1,325 @@
 ---
+interface NavChild {
+  text: string;
+  href: string;
+}
+
+interface NavItem {
+  text: string;
+  href: string;
+  children?: NavChild[];
+}
+
+interface Logo {
+  src: string;
+  alt: string;
+  href?: string;
+}
+
+interface Props {
+  transparent?: boolean;
+  logo?: Logo;
+  navItems?: NavItem[];
+  ctaButton?: { text: string; href: string };
+  givePaypalId?: string;
+}
+
+const {
+  transparent = false,
+  logo = {
+    src: '/images/main/epic-logo.png',
+    alt: 'Epic Church Intl',
+    href: '/',
+  },
+  navItems = [
+    { text: "I'm New", href: '/im-new' },
+    { text: 'About', href: '/about' },
+    {
+      text: 'Ministries',
+      href: '/ministries',
+      children: [
+        { text: 'Epic Youth', href: '/ministries/epic-youth' },
+        { text: 'Epic Kidz', href: '/epic-kidz' },
+        { text: 'Epic Español', href: '/ministries/epic-espanol' },
+        { text: 'ACTS', href: '/acts' },
+        { text: 'Ministry Masterclass', href: '/ministry-masterclass' },
+        { text: 'Next Steps', href: '/next-steps' },
+      ],
+    },
+    {
+      text: 'Epic Life Groups',
+      href: '/life-groups',
+      children: [
+        { text: 'Find a Life Group', href: '/find-a-life-group' },
+        { text: 'Lead a Life Group', href: '/lead-a-life-group' },
+      ],
+    },
+    {
+      text: 'Sermons',
+      href: '/sermon-series',
+      children: [
+        { text: 'Sermons', href: '/sermons' },
+      ],
+    },
+    {
+      text: 'MORE',
+      href: '/more',
+      children: [
+        { text: 'VOLUNTEER', href: 'https://www.jotform.com/form/71644822193155' },
+        { text: 'Baby / Family Dedication', href: 'https://www.jotform.com/form/82684502193156' },
+        { text: 'Water Baptism', href: 'https://form.jotform.com/220974260890157' },
+        { text: 'Connect Card', href: '/connect-card-' },
+        { text: 'Wedding Form', href: 'https://form.jotform.com/EpicChurchIntl/wedding-ceremony-request-form' },
+      ],
+    },
+  ],
+  ctaButton = { text: 'Watch Live', href: '/watch-live' },
+  givePaypalId = 'X8WWJ8TVF4S24',
+} = Astro.props;
 ---
 
-<header class="sticky top-0 z-50 bg-white shadow-md">
+<header
+  id="site-header"
+  class={transparent
+    ? "transparent-header fixed top-0 z-50 w-full transition-all duration-300"
+    : "sticky top-0 z-50 bg-white shadow-md"}
+>
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between py-4">
-      <!-- Logo -->
+
+      <!-- Logo / Branding -->
       <div class="flex-shrink-0">
-        <a href="/" class="text-2xl font-bold text-blue-900">
-          EPIC CHURCH
+        <a href={logo.href ?? '/'} id="header-logo">
+          <img src={logo.src} alt={logo.alt} class="h-12 w-auto" />
         </a>
       </div>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden header:flex items-center space-x-6">
-        <a href="/im-new" class="hover:text-blue-600 transition-colors">I'm New</a>
-        <a href="/about" class="hover:text-blue-600 transition-colors">About</a>
+      <!-- Nav container -->
+      <div class="flex items-center">
 
-        <div class="relative group">
-          <button class="flex items-center hover:text-blue-600 transition-colors">
-            Ministries
-            <!-- ChevronDown Icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1">
-              <polyline points="6 9 12 15 18 9"></polyline>
+        <!-- Desktop site-nav (visible ≥ lg) -->
+        <nav class="site-nav hidden lg:block">
+          <ul class="flex items-center gap-6">
+
+            {navItems.map((item) => (
+              item.children && item.children.length > 0 ? (
+                <li class="relative group has_children">
+                  <a href={item.href} class="nav-link flex items-center gap-1 pb-2">
+                    {item.text}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </a>
+                  <ul class="dropdown-menu absolute left-0 top-full w-52 bg-white shadow-lg rounded-md z-[100] hidden group-hover:block">
+                    {item.children.map((child) => (
+                      <li>
+                        <a href={child.href} class="dropdown-item">{child.text}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <li>
+                  <a href={item.href} class="nav-link">{item.text}</a>
+                </li>
+              )
+            ))}
+
+            <!-- Watch Live CTA -->
+            {ctaButton && (
+              <li>
+                <a href={ctaButton.href} class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors font-semibold text-sm">
+                  {ctaButton.text}
+                </a>
+              </li>
+            )}
+
+            <!-- Give → PayPal -->
+            {givePaypalId && (
+              <li class="give-trigger">
+                <a href="#" id="give-trigger" class="nav-link">Give</a>
+              </li>
+            )}
+
+          </ul>
+
+          <!-- Hidden PayPal form -->
+          {givePaypalId && (
+            <form id="paypal-give-form" target="_blank" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="display:none; height:1px; width:1px; overflow:hidden;">
+              <input type="hidden" name="cmd" value="_s-xclick" />
+              <input type="hidden" name="hosted_button_id" value={givePaypalId} />
+              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="Donate with PayPal button" />
+              <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+            </form>
+          )}
+        </nav>
+
+        <!-- Mobile toggle buttons (hidden ≥ lg) -->
+        <div class="flex items-center gap-4 lg:hidden">
+          <button id="search-toggle" class="mobile-icon-btn p-2" aria-label="Toggle search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
             </svg>
           </button>
-          <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-            <a href="/ministries" class="block px-4 py-2 hover:bg-gray-100 font-semibold">All Ministries</a>
-            <div class="border-t border-gray-200"></div>
-            <a href="/epic-youth" class="block px-4 py-2 hover:bg-gray-100">Epic Youth</a>
-            <a href="/epic-kidz" class="block px-4 py-2 hover:bg-gray-100">Epic Kidz</a>
-            <a href="/epic-espanol" class="block px-4 py-2 hover:bg-gray-100">Epic Español</a>
-          </div>
-        </div>
-
-        <a href="/life-groups" class="hover:text-blue-600 transition-colors">Epic Life Groups</a>
-        <a href="/sermons" class="hover:text-blue-600 transition-colors">Sermons</a>
-
-        <div class="relative group">
-          <button class="flex items-center hover:text-blue-600 transition-colors">
-            MORE
-            <!-- ChevronDown Icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1">
-              <polyline points="6 9 12 15 18 9"></polyline>
+          <button id="mobile-menu-toggle" class="mobile-icon-btn p-2" aria-label="Toggle mobile menu">
+            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="6" x2="20" y2="6"></line>
+              <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
+            <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
-          <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-            <a href="/give" class="block px-4 py-2 hover:bg-gray-100">Give</a>
-            <a href="/volunteer" class="block px-4 py-2 hover:bg-gray-100">Volunteer</a>
-            <a href="/baptism" class="block px-4 py-2 hover:bg-gray-100">Water Baptism</a>
-            <a href="/dedication" class="block px-4 py-2 hover:bg-gray-100">Baby Dedication</a>
-          </div>
         </div>
 
-        <a href="/watch-live" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">
-          Watch Live
-        </a>
-        <a href="/contact" class="bg-gray-800 text-white px-6 py-2 rounded-md hover:bg-gray-900 transition-colors">
-          Contact Us
-        </a>
-      </nav>
-
-      <!-- Mobile menu toggle -->
-      <div class="flex items-center gap-4 header:hidden">
-        <button
-          id="search-toggle"
-          class="p-2"
-          aria-label="Toggle search"
-        >
-          <!-- Search Icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.35-4.35"></path>
-          </svg>
-        </button>
-        <button
-          id="mobile-menu-toggle"
-          class="p-2"
-          aria-label="Toggle mobile menu"
-        >
-          <!-- Menu Icon -->
-          <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="4" y1="12" x2="20" y2="12"></line>
-            <line x1="4" y1="6" x2="20" y2="6"></line>
-            <line x1="4" y1="18" x2="20" y2="18"></line>
-          </svg>
-          <!-- X Icon -->
-          <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
       </div>
     </div>
 
     <!-- Search Bar -->
-    <div id="search-bar" class="hidden pb-4">
-      <input
-        type="search"
-        placeholder="Search..."
-        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
+    <div id="search-bar" class="overflow-hidden" style="max-height:0; transition: max-height 0.3s ease;">
+      <div class="pb-4">
+        <input
+          type="search"
+          placeholder="Search..."
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
     </div>
 
-    <!-- Mobile Menu -->
-    <nav id="mobile-menu" class="hidden header:hidden py-4 border-t border-gray-200">
-      <a href="/im-new" class="block py-2 hover:text-blue-600">I'm New</a>
-      <a href="/about" class="block py-2 hover:text-blue-600">About</a>
-      <a href="/ministries" class="block py-2 hover:text-blue-600 font-semibold">Ministries</a>
-      <a href="/epic-youth" class="block py-2 pl-4 hover:text-blue-600">Epic Youth</a>
-      <a href="/epic-kidz" class="block py-2 pl-4 hover:text-blue-600">Epic Kidz</a>
-      <a href="/epic-espanol" class="block py-2 pl-4 hover:text-blue-600">Epic Español</a>
-      <a href="/life-groups" class="block py-2 hover:text-blue-600">Epic Life Groups</a>
-      <a href="/sermons" class="block py-2 hover:text-blue-600">Sermons</a>
-      <a href="/give" class="block py-2 pl-4 hover:text-blue-600">Give</a>
-      <a href="/volunteer" class="block py-2 pl-4 hover:text-blue-600">Volunteer</a>
-      <a href="/baptism" class="block py-2 pl-4 hover:text-blue-600">Water Baptism</a>
-      <a href="/watch-live" class="mt-4 block w-full bg-blue-600 text-center text-white px-6 py-2 rounded-md hover:bg-blue-700">
-        Watch Live
-      </a>
-      <a href="/contact" class="mt-2 block w-full bg-gray-800 text-center text-white px-6 py-2 rounded-md hover:bg-gray-900">
-        Contact Us
-      </a>
+    <!-- Mobile Menu (hidden ≥ lg) -->
+    <nav id="mobile-menu" class="lg:hidden overflow-hidden border-t border-gray-200" style="max-height:0; transition: max-height 0.35s ease-in-out;">
+      <div class="py-4">
+        {navItems.map((item) => (
+          <>
+            <a
+              href={item.href}
+              class={`block py-2 hover:text-blue-600 ${item.children && item.children.length > 0 ? 'font-semibold' : ''}`}
+            >
+              {item.text}
+            </a>
+            {item.children?.map((child) => (
+              <a href={child.href} class="block py-2 pl-4 hover:text-blue-600">
+                {child.text}
+              </a>
+            ))}
+          </>
+        ))}
+
+        {ctaButton && (
+          <a href={ctaButton.href} class="block py-2 text-blue-600 font-semibold">
+            {ctaButton.text}
+          </a>
+        )}
+        {givePaypalId && (
+          <a href="#" id="give-trigger-mobile" class="block py-2 hover:text-blue-600">Give</a>
+        )}
+      </div>
     </nav>
+
   </div>
 </header>
 
+<style is:global>
+  /* Transparent header — unscrolled state */
+  .transparent-header:not(.is-scrolled) #header-logo { color: white; }
+
+  .transparent-header:not(.is-scrolled) .site-nav .nav-link {
+    color: white;
+  }
+  .transparent-header:not(.is-scrolled) .site-nav .nav-link:hover {
+    color: rgb(147 197 253);
+  }
+  .transparent-header:not(.is-scrolled) .mobile-icon-btn svg {
+    stroke: white;
+  }
+
+  /* Transparent header — scrolled state */
+  .transparent-header.is-scrolled {
+    background: white;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+  .transparent-header.is-scrolled #header-logo { color: rgb(30 58 138); }
+</style>
+
 <style>
-  /* Transiciones suaves para dropdowns */
-  .group .absolute {
-    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-    transform: translateY(-10px);
+  .nav-link {
+    transition: color 0.2s ease;
+  }
+  .nav-link:hover {
+    color: rgb(37 99 235); /* blue-600 */
   }
 
-  .group:hover .absolute {
+  /* Dropdown items */
+  .dropdown-item {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: rgb(31 41 55); /* gray-800 */
+    transition: background-color 0.15s ease;
+  }
+  .dropdown-item:hover {
+    background-color: rgb(243 244 246); /* gray-100 */
+  }
+
+  /* Dropdown slide-in animation */
+  .dropdown-menu {
+    transform: translateY(-6px);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .group:hover .dropdown-menu {
     transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
   }
-
-  /* Animación de entrada para items del dropdown */
-  .group .absolute a {
-    transition: background-color 0.2s ease;
-  }
-
-  /* Transición para mobile menu */
-  #mobile-menu {
-    transition: all 0.3s ease-in-out;
-    max-height: 0;
-    overflow: hidden;
-  }
-
-  #mobile-menu:not(.hidden) {
-    max-height: 1000px;
-  }
-
-  /* Transición para search bar */
-  #search-bar {
-    transition: all 0.3s ease-in-out;
-    max-height: 0;
-    overflow: hidden;
-  }
-
-  #search-bar:not(.hidden) {
-    max-height: 100px;
+  /* Override Tailwind's hidden when group is hovered */
+  .group:hover .dropdown-menu.hidden {
+    display: block;
   }
 </style>
 
 <script>
   // Mobile menu toggle
   const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenu = document.getElementById('mobile-menu') as HTMLElement | null;
   const menuIcon = document.getElementById('menu-icon');
   const closeIcon = document.getElementById('close-icon');
 
   mobileMenuToggle?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
+    if (!mobileMenu) return;
+    const isOpen = mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== '0px';
+    mobileMenu.style.maxHeight = isOpen ? '0px' : '2000px';
     menuIcon?.classList.toggle('hidden');
     closeIcon?.classList.toggle('hidden');
   });
 
-  // Search toggle
+  // Search bar toggle
   const searchToggle = document.getElementById('search-toggle');
-  const searchBar = document.getElementById('search-bar');
+  const searchBar = document.getElementById('search-bar') as HTMLElement | null;
 
   searchToggle?.addEventListener('click', () => {
-    searchBar?.classList.toggle('hidden');
+    if (!searchBar) return;
+    const isOpen = searchBar.style.maxHeight && searchBar.style.maxHeight !== '0px';
+    searchBar.style.maxHeight = isOpen ? '0px' : '100px';
   });
+
+  // Give → PayPal
+  const paypalForm = document.getElementById('paypal-give-form') as HTMLFormElement | null;
+  document.querySelectorAll('#give-trigger, #give-trigger-mobile').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      paypalForm?.submit();
+    });
+  });
+
+  // Transparent header scroll behavior
+  const header = document.getElementById('site-header');
+  if (header?.classList.contains('transparent-header')) {
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 100);
+    }, { passive: true });
+  }
 </script>

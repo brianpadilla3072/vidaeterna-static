@@ -7,8 +7,8 @@ export default {
       'sm': '640px',
       'md': '768px',
       'lg': '1024px',      // Mantener breakpoint original (usado en grids)
-      'header': '1330px',  // Nuevo breakpoint personalizado para header
       'xl': '1280px',
+      'header': '1330px',  // Nuevo breakpoint personalizado para header
       '2xl': '1536px',
     },
   },

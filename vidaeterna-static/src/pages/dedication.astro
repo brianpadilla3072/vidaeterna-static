@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
+import InfoBox from '../components/InfoBox.astro';
+import ChecklistItem from '../components/ChecklistItem.astro';
 ---
 
 <Layout title="Baby & Family Dedication - Epic Church">
@@ -19,7 +21,7 @@ import PageHero from '../components/PageHero.astro';
       <section class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-4xl">
           <div class="mb-12">
-            <h2 class="text-4xl font-bold mb-6 text-gray-900">What is Baby Dedication?</h2>
+            <h2 class="section-title">What is Baby Dedication?</h2>
             <p class="text-gray-600 text-lg leading-relaxed mb-6">
               Baby and family dedication is a special service where parents make
               a public commitment to raise their children according to biblical
@@ -33,8 +35,7 @@ import PageHero from '../components/PageHero.astro';
             </p>
           </div>
 
-          <div class="bg-blue-50 p-8 rounded-lg mb-12 border-l-4 border-blue-600">
-            <h3 class="text-2xl font-bold mb-4 text-gray-900">Biblical Foundation</h3>
+          <InfoBox title="Biblical Foundation" class="mb-12">
             <div class="space-y-4">
               <div>
                 <p class="text-gray-700 italic mb-2">
@@ -54,84 +55,30 @@ import PageHero from '../components/PageHero.astro';
                 <p class="text-gray-600 text-sm">- Mark 10:13-14</p>
               </div>
             </div>
-          </div>
+          </InfoBox>
 
           <div class="grid md:grid-cols-2 gap-8 mb-12">
             <div class="bg-white p-6 rounded-lg border border-gray-200">
               <h3 class="text-xl font-bold mb-4 text-gray-900">Parent Commitment</h3>
-              <p class="text-gray-600 mb-4">
-                As parents, you will commit to:
-              </p>
+              <p class="text-gray-600 mb-4">As parents, you will commit to:</p>
               <ul class="space-y-2 text-gray-600 text-sm">
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Live as an example of Christ's love
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Teach them God's Word
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Pray for and with your children
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Lead them to a personal relationship with Jesus
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Raise them in a church community
-                </li>
+                <ChecklistItem text="Live as an example of Christ's love" size="sm" />
+                <ChecklistItem text="Teach them God's Word" size="sm" />
+                <ChecklistItem text="Pray for and with your children" size="sm" />
+                <ChecklistItem text="Lead them to a personal relationship with Jesus" size="sm" />
+                <ChecklistItem text="Raise them in a church community" size="sm" />
               </ul>
             </div>
 
             <div class="bg-white p-6 rounded-lg border border-gray-200">
               <h3 class="text-xl font-bold mb-4 text-gray-900">Church Commitment</h3>
-              <p class="text-gray-600 mb-4">
-                Our church family commits to:
-              </p>
+              <p class="text-gray-600 mb-4">Our church family commits to:</p>
               <ul class="space-y-2 text-gray-600 text-sm">
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Pray for your family regularly
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Support you in your parenting journey
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Provide a safe, nurturing environment
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Be positive role models for your children
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Partner with you in their spiritual growth
-                </li>
+                <ChecklistItem text="Pray for your family regularly" size="sm" />
+                <ChecklistItem text="Support you in your parenting journey" size="sm" />
+                <ChecklistItem text="Provide a safe, nurturing environment" size="sm" />
+                <ChecklistItem text="Be positive role models for your children" size="sm" />
+                <ChecklistItem text="Partner with you in their spiritual growth" size="sm" />
               </ul>
             </div>
           </div>
@@ -146,83 +93,48 @@ import PageHero from '../components/PageHero.astro';
               <div class="grid md:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-sm font-semibold mb-2">Parent/Guardian Name *</label>
-                  <input
-                    type="text"
-                    required
-                    class="w-full px-4 py-3 rounded-md text-gray-900"
-                  />
+                  <input type="text" required class="w-full px-4 py-3 rounded-md text-gray-900" />
                 </div>
                 <div>
                   <label class="block text-sm font-semibold mb-2">Spouse/Co-Parent Name</label>
-                  <input
-                    type="text"
-                    class="w-full px-4 py-3 rounded-md text-gray-900"
-                  />
+                  <input type="text" class="w-full px-4 py-3 rounded-md text-gray-900" />
                 </div>
               </div>
 
               <div>
                 <label class="block text-sm font-semibold mb-2">Email *</label>
-                <input
-                  type="email"
-                  required
-                  class="w-full px-4 py-3 rounded-md text-gray-900"
-                />
+                <input type="email" required class="w-full px-4 py-3 rounded-md text-gray-900" />
               </div>
 
               <div>
                 <label class="block text-sm font-semibold mb-2">Phone *</label>
-                <input
-                  type="tel"
-                  required
-                  class="w-full px-4 py-3 rounded-md text-gray-900"
-                />
+                <input type="tel" required class="w-full px-4 py-3 rounded-md text-gray-900" />
               </div>
 
               <div>
                 <label class="block text-sm font-semibold mb-2">Child's Name *</label>
-                <input
-                  type="text"
-                  required
-                  class="w-full px-4 py-3 rounded-md text-gray-900"
-                />
+                <input type="text" required class="w-full px-4 py-3 rounded-md text-gray-900" />
               </div>
 
               <div>
                 <label class="block text-sm font-semibold mb-2">Child's Birthdate *</label>
-                <input
-                  type="date"
-                  required
-                  class="w-full px-4 py-3 rounded-md text-gray-900"
-                />
+                <input type="date" required class="w-full px-4 py-3 rounded-md text-gray-900" />
               </div>
 
               <div>
-                <label class="block text-sm font-semibold mb-2">
-                  Are you dedicating additional children?
-                </label>
-                <select
-                  class="w-full px-4 py-3 rounded-md text-gray-900"
-                >
+                <label class="block text-sm font-semibold mb-2">Are you dedicating additional children?</label>
+                <select class="w-full px-4 py-3 rounded-md text-gray-900">
                   <option value="no">No, just one child</option>
                   <option value="yes">Yes (we'll contact you for details)</option>
                 </select>
               </div>
 
               <div>
-                <label class="block text-sm font-semibold mb-2">
-                  Additional Information or Questions
-                </label>
-                <textarea
-                  rows="4"
-                  class="w-full px-4 py-3 rounded-md text-gray-900"
-                ></textarea>
+                <label class="block text-sm font-semibold mb-2">Additional Information or Questions</label>
+                <textarea rows="4" class="w-full px-4 py-3 rounded-md text-gray-900"></textarea>
               </div>
 
-              <button
-                type="submit"
-                class="w-full bg-white text-purple-900 px-6 py-3 rounded-md text-lg font-semibold hover:bg-gray-100 transition-colors"
-              >
+              <button type="submit" class="w-full bg-white text-purple-900 px-6 py-3 rounded-md text-lg font-semibold hover:bg-gray-100 transition-colors">
                 Submit Registration
               </button>
             </form>

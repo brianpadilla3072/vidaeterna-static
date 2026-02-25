@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
+import InfoBox from '../components/InfoBox.astro';
+import ChecklistItem from '../components/ChecklistItem.astro';
 ---
 
 <Layout title="Water Baptism - Epic Church">
@@ -19,7 +21,7 @@ import PageHero from '../components/PageHero.astro';
       <section class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-4xl">
           <div class="mb-12">
-            <h2 class="text-4xl font-bold mb-6 text-gray-900">What is Water Baptism?</h2>
+            <h2 class="section-title">What is Water Baptism?</h2>
             <p class="text-gray-600 text-lg leading-relaxed mb-6">
               Water baptism is an outward expression of an inward commitment to Jesus Christ.
               It's a public declaration of your faith and a powerful step of obedience that
@@ -32,8 +34,7 @@ import PageHero from '../components/PageHero.astro';
             </p>
           </div>
 
-          <div class="bg-blue-50 p-8 rounded-lg mb-12 border-l-4 border-blue-600">
-            <h3 class="text-2xl font-bold mb-4 text-gray-900">What the Bible Says</h3>
+          <InfoBox title="What the Bible Says" class="mb-12">
             <div class="space-y-4">
               <div>
                 <p class="text-gray-700 italic mb-2">
@@ -51,7 +52,7 @@ import PageHero from '../components/PageHero.astro';
                 <p class="text-gray-600 text-sm">- Romans 6:4</p>
               </div>
             </div>
-          </div>
+          </InfoBox>
 
           <div class="grid md:grid-cols-2 gap-8 mb-12">
             <div class="bg-white p-6 rounded-lg border border-gray-200">
@@ -61,24 +62,9 @@ import PageHero from '../components/PageHero.astro';
                 and accept Him as their Lord and Savior.
               </p>
               <ul class="space-y-2 text-gray-600 text-sm">
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  You believe Jesus died for your sins
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  You have accepted Him as your Savior
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  You want to follow Him publicly
-                </li>
+                <ChecklistItem text="You believe Jesus died for your sins" size="sm" />
+                <ChecklistItem text="You have accepted Him as your Savior" size="sm" />
+                <ChecklistItem text="You want to follow Him publicly" size="sm" />
               </ul>
             </div>
 
@@ -88,30 +74,10 @@ import PageHero from '../components/PageHero.astro';
                 Baptism services are held regularly throughout the year.
               </p>
               <ul class="space-y-2 text-gray-600 text-sm">
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Brief meeting before the service
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Share your testimony (optional)
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Baptism by full immersion
-                </li>
-                <li class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Celebration with church family
-                </li>
+                <ChecklistItem text="Brief meeting before the service" size="sm" />
+                <ChecklistItem text="Share your testimony (optional)" size="sm" />
+                <ChecklistItem text="Baptism by full immersion" size="sm" />
+                <ChecklistItem text="Celebration with church family" size="sm" />
               </ul>
             </div>
           </div>
@@ -126,46 +92,27 @@ import PageHero from '../components/PageHero.astro';
               <div class="grid md:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-sm font-semibold mb-2">First Name *</label>
-                  <input
-                    type="text"
-                    required
-                    class="w-full px-4 py-3 rounded-md text-gray-900"
-                  />
+                  <input type="text" required class="w-full px-4 py-3 rounded-md text-gray-900" />
                 </div>
                 <div>
                   <label class="block text-sm font-semibold mb-2">Last Name *</label>
-                  <input
-                    type="text"
-                    required
-                    class="w-full px-4 py-3 rounded-md text-gray-900"
-                  />
+                  <input type="text" required class="w-full px-4 py-3 rounded-md text-gray-900" />
                 </div>
               </div>
 
               <div>
                 <label class="block text-sm font-semibold mb-2">Email *</label>
-                <input
-                  type="email"
-                  required
-                  class="w-full px-4 py-3 rounded-md text-gray-900"
-                />
+                <input type="email" required class="w-full px-4 py-3 rounded-md text-gray-900" />
               </div>
 
               <div>
                 <label class="block text-sm font-semibold mb-2">Phone *</label>
-                <input
-                  type="tel"
-                  required
-                  class="w-full px-4 py-3 rounded-md text-gray-900"
-                />
+                <input type="tel" required class="w-full px-4 py-3 rounded-md text-gray-900" />
               </div>
 
               <div>
                 <label class="block text-sm font-semibold mb-2">Age Group *</label>
-                <select
-                  required
-                  class="w-full px-4 py-3 rounded-md text-gray-900"
-                >
+                <select required class="w-full px-4 py-3 rounded-md text-gray-900">
                   <option value="">Select...</option>
                   <option value="child">Child (under 12)</option>
                   <option value="teen">Teen (13-17)</option>
@@ -177,10 +124,7 @@ import PageHero from '../components/PageHero.astro';
                 <label class="block text-sm font-semibold mb-2">
                   Have you accepted Jesus as your personal Savior? *
                 </label>
-                <select
-                  required
-                  class="w-full px-4 py-3 rounded-md text-gray-900"
-                >
+                <select required class="w-full px-4 py-3 rounded-md text-gray-900">
                   <option value="">Select...</option>
                   <option value="yes">Yes</option>
                   <option value="no">Not yet - I'd like to talk to someone</option>
@@ -188,9 +132,7 @@ import PageHero from '../components/PageHero.astro';
               </div>
 
               <div>
-                <label class="block text-sm font-semibold mb-2">
-                  Share your testimony (optional)
-                </label>
+                <label class="block text-sm font-semibold mb-2">Share your testimony (optional)</label>
                 <textarea
                   rows="4"
                   class="w-full px-4 py-3 rounded-md text-gray-900"
@@ -198,10 +140,7 @@ import PageHero from '../components/PageHero.astro';
                 ></textarea>
               </div>
 
-              <button
-                type="submit"
-                class="w-full bg-white text-blue-900 px-6 py-3 rounded-md text-lg font-semibold hover:bg-gray-100 transition-colors"
-              >
+              <button type="submit" class="w-full btn-secondary text-center">
                 Submit Registration
               </button>
             </form>
