@@ -13,31 +13,31 @@ interface Props {
 }
 
 const {
-  title = 'CONNECT WITH US',
-  videoSrc = 'https://www.epicchurchintl.org/files/uploads/NewSundayOpenerWebsite.mp4',
-  audioSrc = 'https://www.epicchurchintl.org/files/uploads/EPICSONG.mp3',
+  title = 'BIENVENIDOS',
+  videoSrc = '',
+  audioSrc = '',
   buttons = [
-    { text: 'Watch Live', href: '/watch-live', variant: 'primary' },
-    { text: 'Contact Us', href: '/contact-us', variant: 'outline' },
+    { text: 'Ver horarios', href: '/reuniones', variant: 'primary' },
+    { text: 'Contáctanos', href: '/contacto', variant: 'outline' },
   ],
 } = Astro.props;
 ---
 
-<section id="hero" class="hero-with-gradient relative text-white overflow-hidden" style="height: 100vh; min-height: 676px;">
-  <!-- Overlay image (empty, same as reference) -->
-  <img src="" alt="" style="display:none;" />
+<section id="hero" class="hero-with-gradient relative text-white overflow-hidden" style="height: 100vh; min-height: 676px; background-color: #10375B;">
 
-  <!-- Video Background -->
-  <video
-    class="absolute inset-0 w-full h-full object-cover z-0"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-  >
-    <source src={videoSrc} type="video/mp4" />
-  </video>
+  <!-- Video Background (solo si hay videoSrc) -->
+  {videoSrc && (
+    <video
+      class="absolute inset-0 w-full h-full object-cover z-0"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source src={videoSrc} type="video/mp4" />
+    </video>
+  )}
 
   <!-- Content -->
   <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
@@ -65,8 +65,8 @@ const {
 
 </section>
 
-<!-- Audio toggle — fixed just below the header, only visible while hero is on screen -->
-<div id="audio-player-bar" style="position: fixed; top: 80px; right: 20px; z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
+<!-- Audio toggle — solo si hay audioSrc -->
+{audioSrc && <div id="audio-player-bar" style="position: fixed; top: 80px; right: 20px; z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
   <audio id="homepage-audio" loop muted preload="auto">
     <source src={audioSrc} type="audio/mpeg" />
   </audio>
@@ -88,7 +88,8 @@ const {
       font-size: 20px;
     "
   >🔇</button>
-</div>
+</div>}
+
 
 <script>
   const audio = document.getElementById('homepage-audio') as HTMLAudioElement;

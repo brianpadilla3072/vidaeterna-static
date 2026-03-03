@@ -156,12 +156,6 @@ const {
 
         <!-- Mobile toggle buttons (hidden ≥ lg) -->
         <div class="flex items-center gap-4 lg:hidden">
-          <button id="search-toggle" class="mobile-icon-btn p-2" aria-label="Toggle search">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="m21 21-4.35-4.35"></path>
-            </svg>
-          </button>
           <button id="mobile-menu-toggle" class="mobile-icon-btn p-2" aria-label="Toggle mobile menu">
             <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="4" y1="12" x2="20" y2="12"></line>
@@ -178,20 +172,10 @@ const {
       </div>
     </div>
 
-    <!-- Search Bar -->
-    <div id="search-bar" class="overflow-hidden" style="max-height:0; transition: max-height 0.3s ease;">
-      <div class="pb-4">
-        <input
-          type="search"
-          placeholder="Search..."
-          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
-    </div>
 
     <!-- Mobile Menu (hidden ≥ lg) -->
-    <nav id="mobile-menu" class="lg:hidden overflow-hidden border-t border-gray-200" style="max-height:0; transition: max-height 0.35s ease-in-out;">
-      <div class="py-4">
+    <nav id="mobile-menu" class="lg:hidden overflow-hidden border-t border-gray-200 bg-white text-gray-900" style="max-height:0; transition: max-height 0.35s ease-in-out;">
+      <div class="py-4 px-4">
         {navItems.map((item) => (
           <>
             <a
@@ -242,6 +226,17 @@ const {
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
   .transparent-header.is-scrolled #header-logo { color: rgb(30 58 138); }
+  .transparent-header.is-scrolled .mobile-icon-btn svg { stroke: rgb(31 41 55); }
+
+  /* Touch dropdown support */
+  @media (hover: none) and (pointer: coarse) {
+    .has_children .dropdown-menu { display: none; }
+    .has_children.touch-open .dropdown-menu {
+      display: block !important;
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
 </style>
 
 <style>
@@ -296,15 +291,6 @@ const {
     closeIcon?.classList.toggle('hidden');
   });
 
-  // Search bar toggle
-  const searchToggle = document.getElementById('search-toggle');
-  const searchBar = document.getElementById('search-bar') as HTMLElement | null;
-
-  searchToggle?.addEventListener('click', () => {
-    if (!searchBar) return;
-    const isOpen = searchBar.style.maxHeight && searchBar.style.maxHeight !== '0px';
-    searchBar.style.maxHeight = isOpen ? '0px' : '100px';
-  });
 
   // Give → PayPal
   const paypalForm = document.getElementById('paypal-give-form') as HTMLFormElement | null;
@@ -318,8 +304,29 @@ const {
   // Transparent header scroll behavior
   const header = document.getElementById('site-header');
   if (header?.classList.contains('transparent-header')) {
+    let ticking = false;
+    const threshold = header.offsetHeight;
     window.addEventListener('scroll', () => {
-      header.classList.toggle('is-scrolled', window.scrollY > 100);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          header.classList.toggle('is-scrolled', window.scrollY > threshold);
+          ticking = false;
+        });
+        ticking = true;
+      }
     }, { passive: true });
   }
+
+  // Dropdown touch support
+  document.querySelectorAll('.has_children').forEach(group => {
+    group.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('.dropdown-menu')) return;
+      e.stopPropagation();
+      group.classList.toggle('touch-open');
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.has_children.touch-open').forEach(g => g.classList.remove('touch-open'));
+  });
 </script>

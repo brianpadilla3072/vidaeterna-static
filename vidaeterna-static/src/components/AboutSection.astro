@@ -15,58 +15,58 @@ interface Props {
 }
 
 const {
-  label = 'ABOUT US',
-  title = 'TRANSFORMED LIVES.',
-  titleHighlight = 'PERIOD',
-  description = 'At EPIC Church no matter your age, background, or status, you matter to God and therefore, you matter to us. We are a multi-generational, multi-ethnic church that reflects what heaven must look like!',
-  ctaText = 'Learn More',
+  label = 'QUIÉNES SOMOS',
+  title = 'VIDA ETERNA',
+  titleHighlight = 'EN CRISTO',
+  description = 'Somos una iglesia dedicada a la predicación del Evangelio, la enseñanza bíblica y la formación de discípulos.',
+  ctaText = 'Conocer más',
   ctaHref = '/about',
-  images = [
-    {
-      src: 'https://www.epicchurchintl.org/images/r/275936823_5602693846427151_3347189066762514707_n/460xg2-26-1364-913/275936823_5602693846427151_3347189066762514707_n.jpg',
-      alt: 'Church worship',
-    },
-    {
-      src: 'https://www.epicchurchintl.org/images/r/241548431_5062031687160039_868781867178746428_n/460xg206-154-763-517/241548431_5062031687160039_868781867178746428_n.jpg',
-      alt: 'Diverse community',
-    },
-  ],
+  images = [],
 } = Astro.props;
+
+const hasImages = images.length > 0;
 ---
 
 <section id="intro" class="py-20 bg-white" data-aos="fade-up" data-aos-duration="1000">
   <div class="container mx-auto px-4">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <!-- Images -->
-      <div class="relative pb-12">
-        <img
-          src={images[0].src}
-          alt={images[0].alt}
-          class="rounded-lg shadow-lg w-full h-[400px] object-cover"
-        />
-        {images[1] && (
+    <div class={`gap-12 items-center ${hasImages ? 'grid md:grid-cols-2' : 'max-w-3xl mx-auto text-center'}`}>
+
+      <!-- Images (solo si existen) -->
+      {hasImages && (
+        <div class="relative pb-12">
           <img
-            src={images[1].src}
-            alt={images[1].alt}
-            class="rounded-lg shadow-lg w-2/3 h-[300px] object-cover absolute -bottom-8 -right-4 hidden md:block"
+            src={images[0].src}
+            alt={images[0].alt}
+            class="rounded-lg shadow-lg w-full h-[400px] object-cover"
           />
-        )}
-      </div>
+          {images[1] && (
+            <img
+              src={images[1].src}
+              alt={images[1].alt}
+              class="rounded-lg shadow-lg w-2/3 h-[300px] object-cover absolute -bottom-8 -right-4 hidden md:block"
+            />
+          )}
+        </div>
+      )}
 
       <!-- Text -->
       <div>
-        <h3 class="text-blue-600 text-sm tracking-wider mb-4">{label}</h3>
-        <h2 class="text-4xl md:text-5xl mb-6">
-          {title} <span class="text-blue-600">{titleHighlight}</span>
+        <p class="text-sm font-semibold uppercase tracking-widest mb-4" style="color: #10375B">{label}</p>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6" style="color: #10375B">
+          {title} <span style="color: #c47a1a">{titleHighlight}</span>
         </h2>
-        <p class="text-gray-600 mb-6 leading-relaxed">
+        <p class="text-gray-600 mb-8 leading-relaxed text-lg">
           {description}
         </p>
         <a
           href={ctaHref}
-          class="inline-block border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-md hover:bg-blue-600 hover:text-white transition-colors"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-opacity hover:opacity-85"
+          style="background-color: #10375B"
         >
           {ctaText}
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
         </a>
       </div>
     </div>

@@ -11,9 +11,9 @@ interface Props {
 
 const {
   title,
-  description = 'Epic Church - A community of faith',
-  ogImage = 'https://www.epicchurchintl.org/images/r/275936823_5602693846427151_3347189066762514707_n/460xg2-26-1364-913/275936823_5602693846427151_3347189066762514707_n.jpg',
-  lang = 'en',
+  description = 'Iglesia Vida Eterna — Una comunidad de fe viva en Jesucristo',
+  ogImage = '',
+  lang = 'es',
   themeColor = '#10375B',
 } = Astro.props;
 
@@ -51,11 +51,11 @@ const canonicalURL = Astro.site
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <title>{title}</title>
 
