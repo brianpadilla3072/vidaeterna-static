@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   // URL de producción — requerida por sitemap y canonical URL
-  site: 'https://epicchurchintl.org',
+  site: 'https://vidaeterna-static.vercel.app',
 
   vite: {
     plugins: [tailwindcss()],
